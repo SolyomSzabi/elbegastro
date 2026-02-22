@@ -1,0 +1,113 @@
+{
+  "project_name": "EL&BE Restaurant",
+  "theme": "dark",
+  "design_philosophy": {
+    "core_concept": "Vintage Industrial Luxury",
+    "emotional_tone": "Intimate, Premium, Appetizing, Timeless",
+    "visual_style": "Dark mode with metallic gold accents, deep burgundy highlights, and paper-like textures. High contrast typography."
+  },
+  "typography": {
+    "font_family": {
+      "heading": "Playfair Display, serif",
+      "body": "Manrope, sans-serif",
+      "accent": "Cinzel, serif"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-bold tracking-tight",
+      "h2": "text-4xl md:text-5xl font-semibold tracking-wide",
+      "h3": "text-2xl md:text-3xl font-medium",
+      "body": "text-base md:text-lg leading-relaxed",
+      "caption": "text-sm tracking-widest uppercase opacity-80"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#0F0F10",
+      "surface": "#18181B",
+      "surface_highlight": "#27272A",
+      "primary": "#D4AF37",
+      "primary_foreground": "#000000",
+      "secondary": "#800020",
+      "secondary_foreground": "#FFFFFF",
+      "text_main": "#EDEDED",
+      "text_muted": "#A1A1AA",
+      "border": "#2E2E30",
+      "success": "#10B981",
+      "error": "#EF4444"
+    },
+    "gradients": {
+      "gold_shimmer": "linear-gradient(45deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%)",
+      "dark_overlay": "linear-gradient(to bottom, rgba(15,15,16,0) 0%, rgba(15,15,16,0.9) 100%)"
+    }
+  },
+  "spacing": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_gap": "py-20 md:py-32",
+    "element_gap": "gap-6 md:gap-10"
+  },
+  "components": {
+    "Button": {
+      "variants": {
+        "primary": "bg-[#D4AF37] text-black hover:bg-[#C5A059] rounded-sm uppercase tracking-widest font-bold px-8 py-4 transition-all duration-300 shadow-[0_4px_14px_0_rgba(212,175,55,0.39)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.23)] hover:-translate-y-1",
+        "outline": "bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black rounded-sm uppercase tracking-widest px-8 py-4 transition-all duration-300",
+        "ghost": "text-[#D4AF37] hover:text-[#F3E5AB] hover:bg-white/5"
+      },
+      "default": "primary"
+    },
+    "Card": {
+      "base": "bg-[#18181B] border border-[#2E2E30] hover:border-[#D4AF37]/50 transition-colors duration-300 rounded-sm overflow-hidden",
+      "interactive": "cursor-pointer hover:shadow-xl hover:shadow-black/50 hover:-translate-y-1 transition-all duration-300"
+    },
+    "Input": {
+      "base": "bg-transparent border-b border-[#2E2E30] focus:border-[#D4AF37] rounded-none px-0 py-3 text-lg placeholder:text-gray-600 focus:ring-0 focus:outline-none transition-colors"
+    },
+    "Badge": {
+      "base": "bg-[#800020] text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full"
+    }
+  },
+  "layout_patterns": {
+    "hero": {
+      "structure": "Full-screen distinct section (h-screen or min-h-[90vh]). Centered content. Heavy use of dark overlay (bg-black/60) to ensure text readability over images.",
+      "typography": "Huge serif headings, gold accents."
+    },
+    "menu_grid": {
+      "structure": "Masonry or Grid layout. Categories sticky on mobile. Cards for items.",
+      "item_style": "Name (Serif) ...... dots ...... Price (Gold). Description below in muted sans-serif."
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.pexels.com/photos/19343364/pexels-photo-19343364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "burger": "https://images.pexels.com/photos/12325009/pexels-photo-12325009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "steak": "https://images.unsplash.com/photo-1732763897987-ce7e63a94d7c?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "cocktail": "https://images.pexels.com/photos/17419472/pexels-photo-17419472.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "beer": "https://images.pexels.com/photos/7421851/pexels-photo-7421851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "wine": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3"
+    },
+    "icons": "Use 'lucide-react' but with stroke-width={1.5} for elegance. Prefer 'phosphor-icons' (Light/Thin weight) if possible for a more premium look."
+  },
+  "motion": {
+    "page_transition": "initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5, ease: 'easeOut' }}",
+    "hover_lift": "hover:-translate-y-1 transition-transform duration-300",
+    "stagger_children": "variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } }}"
+  },
+  "accessibility": {
+    "contrast_check": "Ensure Gold (#D4AF37) is used on Dark Backgrounds (#0F0F10) for non-text components. For text, ensure it's large enough or use a lighter shade.",
+    "interactive_areas": "Min 44px touch targets for all mobile ordering buttons."
+  },
+  "universal_guidelines": [
+    "Do not use gradients for backgrounds, use solid dark colors or subtle noise textures.",
+    "Do not center align large blocks of text; only headings.",
+    "Use 2x more padding than usual. Luxury = Space.",
+    "Never use default blue/standard link colors. Use Gold or White.",
+    "All interactive elements must have a `data-testid` attribute."
+  ],
+  "implementation_steps": [
+    "Install fonts: Playfair Display and Manrope from Google Fonts.",
+    "Configure Tailwind theme with the custom color palette.",
+    "Create a 'Layout' component that handles the Navbar (with Language Switcher) and Footer.",
+    "Build the Menu Page with category filtering.",
+    "Implement the Cart Context (Provider).",
+    "Integrate Stripe (mock or test mode) for checkout."
+  ]
+}
