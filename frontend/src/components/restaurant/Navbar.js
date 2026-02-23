@@ -31,23 +31,19 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0F0F10]/95 backdrop-blur-md border-b border-[#2E2E30]" data-testid="navbar">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1A1714]/95 backdrop-blur-md border-b border-[#332C22]" data-testid="navbar">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group" data-testid="navbar-logo">
-          <span className="text-2xl md:text-3xl font-bold font-['Cinzel',serif] tracking-wider">
-            <span className="text-[#EDEDED]">EL</span>
-            <span className="text-[#D4AF37]">&</span>
-            <span className="text-[#EDEDED]">BE</span>
-          </span>
+        <Link to="/" className="flex items-center group" data-testid="navbar-logo">
+          <img src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/0jj26jng_WhatsApp_Image_2026-02-22_at_21.57.27-removebg-preview.png" alt="EL&BE" className="h-12 md:h-14 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <button onClick={() => scrollToSection('menu')} className="text-sm tracking-widest uppercase text-[#A1A1AA] hover:text-[#D4AF37] transition-colors" data-testid="nav-menu-btn">
+          <button onClick={() => scrollToSection('menu')} className="text-sm tracking-[0.2em] uppercase text-[#8B7D6B] hover:text-[#C8572D] transition-colors font-['Oswald',sans-serif] font-light" data-testid="nav-menu-btn">
             {t('nav.menu')}
           </button>
-          <button onClick={() => scrollToSection('contact')} className="text-sm tracking-widest uppercase text-[#A1A1AA] hover:text-[#D4AF37] transition-colors" data-testid="nav-contact-btn">
+          <button onClick={() => scrollToSection('contact')} className="text-sm tracking-[0.2em] uppercase text-[#8B7D6B] hover:text-[#C8572D] transition-colors font-['Oswald',sans-serif] font-light" data-testid="nav-contact-btn">
             {t('nav.contact')}
           </button>
 
