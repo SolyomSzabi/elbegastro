@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <Link to="/" className="flex items-center group" data-testid="navbar-logo">
-          <img src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/0jj26jng_WhatsApp_Image_2026-02-22_at_21.57.27-removebg-preview.png" alt="EL&BE" className="h-12 md:h-14 w-auto" />
+          <img src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/ddrlmspr_WhatsApp%20Image%202026-02-22%20at%2021.57.27.jpeg" alt="EL&BE" className="h-10 md:h-12 w-auto rounded-sm" />
         </Link>
 
         {/* Desktop Nav */}
