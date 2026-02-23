@@ -18,32 +18,36 @@ export default function HeroSection() {
           alt="EL&BE Restaurant Bar"
           className="w-full h-full object-cover"
         />
-        {/* Dark warm overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1714]/80 via-[#1A1714]/60 to-[#1A1714]/90" />
+        {/* Warm dark overlay */}
+        <div className="absolute inset-0 bg-[#1A1714]/60" />
+        {/* Bottom gradient for content readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1714] via-transparent to-[#1A1714]/40" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Logo */}
+        {/* Logo with backdrop */}
         <div className="mb-8 opacity-0 animate-fade-in-up animate-delay-100" style={{ animationFillMode: 'forwards' }}>
-          <img
-            src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/0jj26jng_WhatsApp_Image_2026-02-22_at_21.57.27-removebg-preview.png"
-            alt="EL&BE Logo"
-            className="w-48 sm:w-56 md:w-72 mx-auto drop-shadow-2xl"
-            data-testid="hero-logo"
-          />
+          <div className="inline-block bg-[#E8DDD0] rounded-full p-6 sm:p-8 shadow-2xl shadow-black/50">
+            <img
+              src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/0jj26jng_WhatsApp_Image_2026-02-22_at_21.57.27-removebg-preview.png"
+              alt="EL&BE Logo"
+              className="w-32 sm:w-40 md:w-48 h-auto"
+              data-testid="hero-logo"
+            />
+          </div>
         </div>
 
-        {/* Divider line */}
+        {/* Divider */}
         <div className="w-24 h-[2px] bg-[#C8572D] mx-auto mb-6 opacity-0 animate-fade-in-up animate-delay-200" style={{ animationFillMode: 'forwards' }} />
 
-        <p className="text-[#E8DDD0] text-base md:text-lg font-['Source_Sans_3',sans-serif] tracking-wide mb-10 opacity-0 animate-fade-in-up animate-delay-300 max-w-md mx-auto" style={{ animationFillMode: 'forwards' }} data-testid="hero-tagline">
+        <p className="text-[#E8DDD0] text-base md:text-lg font-['Source_Sans_3',sans-serif] tracking-wide mb-10 opacity-0 animate-fade-in-up animate-delay-300 max-w-md mx-auto drop-shadow-lg" style={{ animationFillMode: 'forwards' }} data-testid="hero-tagline">
           {t('hero.tagline')}
         </p>
 
         <button
           onClick={scrollToMenu}
-          className="bg-[#C8572D] text-white px-10 py-4 rounded-sm uppercase tracking-[0.25em] font-bold text-sm hover:bg-[#A84523] transition-all duration-300 shadow-lg hover:shadow-[#C8572D]/20 hover:-translate-y-1 opacity-0 animate-fade-in-up font-['Oswald',sans-serif]"
+          className="bg-[#C8572D] text-white px-10 py-4 rounded-sm uppercase tracking-[0.25em] font-bold text-sm hover:bg-[#A84523] transition-all duration-300 shadow-lg hover:shadow-[#C8572D]/30 hover:-translate-y-1 opacity-0 animate-fade-in-up font-['Oswald',sans-serif]"
           style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}
           data-testid="hero-cta-btn"
         >
