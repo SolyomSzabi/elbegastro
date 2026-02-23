@@ -59,13 +59,13 @@ export default function MenuSection() {
 
       {/* Search */}
       <div className="relative max-w-md mx-auto mb-10">
-        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#A1A1AA]" strokeWidth={1.5} />
+        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8B7D6B]" strokeWidth={1.5} />
         <input
           type="text"
           placeholder={t('menu.search')}
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="w-full bg-[#18181B] border border-[#2E2E30] rounded-sm pl-11 pr-4 py-3 text-[#EDEDED] placeholder:text-[#555] focus:border-[#D4AF37] focus:outline-none transition-colors font-['Manrope',sans-serif]"
+          className="w-full bg-[#252019] border border-[#332C22] rounded-sm pl-11 pr-4 py-3 text-[#E8DDD0] placeholder:text-[#5C5347] focus:border-[#C8572D] focus:outline-none transition-colors font-['Source_Sans_3',sans-serif]"
           data-testid="menu-search-input"
         />
       </div>
