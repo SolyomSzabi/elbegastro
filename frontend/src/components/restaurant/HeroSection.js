@@ -28,11 +28,11 @@ export default function HeroSection() {
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* Logo with backdrop */}
         <div className="mb-8 opacity-0 animate-fade-in-up animate-delay-100" style={{ animationFillMode: 'forwards' }}>
-          <div className="inline-block bg-[#E8DDD0] rounded-full p-6 sm:p-8 shadow-2xl shadow-black/50">
+          <div className="inline-block bg-[#E8DDD0] rounded-full p-4 sm:p-5 shadow-2xl shadow-black/50 overflow-hidden w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 flex items-center justify-center">
             <img
               src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/0jj26jng_WhatsApp_Image_2026-02-22_at_21.57.27-removebg-preview.png"
               alt="EL&BE Logo"
-              className="w-32 sm:w-40 md:w-48 h-auto"
+              className="w-[110%] h-[110%] object-contain scale-125"
               data-testid="hero-logo"
             />
           </div>
