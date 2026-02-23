@@ -61,19 +61,16 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0F0F10;
+  background: #1A1714;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: #C8572D;
   border-radius: 3px;
 }
 
-/* Gold shimmer text */
+/* Rust accent text */
 .gold-text {
-  background: linear-gradient(45deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #C8572D;
 }
 
 /* Noise overlay */
@@ -81,9 +78,24 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
+}
+
+/* Wood grain texture overlay */
+.wood-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(200,87,45,0.02) 2px,
+    rgba(200,87,45,0.02) 4px
+  );
+  pointer-events: none;
 }
 
 /* Category pill active */
