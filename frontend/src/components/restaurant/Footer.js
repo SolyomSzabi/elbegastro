@@ -10,11 +10,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
-            <img
-              src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/ddrlmspr_WhatsApp%20Image%202026-02-22%20at%2021.57.27.jpeg"
-              alt="EL&BE"
-              className="h-14 w-auto mx-auto md:mx-0 rounded-sm"
-            />
+            <div className="h-14 w-14 rounded-full overflow-hidden border-2 border-[#332C22] mx-auto md:mx-0">
+              <img src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/ddrlmspr_WhatsApp%20Image%202026-02-22%20at%2021.57.27.jpeg" alt="EL&BE" className="w-full h-full object-cover scale-125" />
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">
