@@ -12,10 +12,9 @@ import OrderConfirmation from '@/pages/OrderConfirmation';
 
 function App() {
   return (
-    <LanguageProvider>
-      <CartProvider>
-        <BrowserRouter>
-          <div className="min-h-screen bg-[#0F0F10] text-[#EDEDED]">
+    <div className="min-h-screen bg-[#1A1714] text-[#E8DDD0]">
+      <BrowserRouter>
+          <div className="min-h-screen">
             <Navbar />
             <Routes>
               <Route path="/" element={<HomePage />} />
