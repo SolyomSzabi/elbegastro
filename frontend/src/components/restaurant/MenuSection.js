@@ -74,10 +74,10 @@ export default function MenuSection() {
       <div className="flex gap-2 overflow-x-auto pb-4 mb-10 scrollbar-hide" data-testid="category-filters">
         <button
           onClick={() => setActiveCategory('all')}
-          className={`shrink-0 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${
+          className={`shrink-0 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border font-['Oswald',sans-serif] ${
             activeCategory === 'all'
-              ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
-              : 'bg-transparent text-[#A1A1AA] border-[#2E2E30] hover:border-[#D4AF37] hover:text-[#D4AF37]'
+              ? 'bg-[#C8572D] text-white border-[#C8572D]'
+              : 'bg-transparent text-[#8B7D6B] border-[#332C22] hover:border-[#C8572D] hover:text-[#C8572D]'
           }`}
           data-testid="category-all"
         >
@@ -87,10 +87,10 @@ export default function MenuSection() {
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
-            className={`shrink-0 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${
+            className={`shrink-0 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border font-['Oswald',sans-serif] ${
               activeCategory === cat.id
-                ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
-                : 'bg-transparent text-[#A1A1AA] border-[#2E2E30] hover:border-[#D4AF37] hover:text-[#D4AF37]'
+                ? 'bg-[#C8572D] text-white border-[#C8572D]'
+                : 'bg-transparent text-[#8B7D6B] border-[#332C22] hover:border-[#C8572D] hover:text-[#C8572D]'
             }`}
             data-testid={`category-${cat.id}`}
           >
