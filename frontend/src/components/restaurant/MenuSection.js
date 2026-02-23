@@ -52,10 +52,10 @@ export default function MenuSection() {
 
   return (
     <section id="menu" className="py-20 md:py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" data-testid="menu-section">
-      <h2 className="text-4xl md:text-5xl font-semibold tracking-wide text-center mb-4" data-testid="menu-title">
+      <h2 className="text-4xl md:text-5xl font-semibold tracking-wide text-center mb-4 font-['Oswald',sans-serif]" data-testid="menu-title">
         {t('menu.title')}
       </h2>
-      <div className="w-16 h-0.5 bg-[#D4AF37] mx-auto mb-12" />
+      <div className="w-16 h-[2px] bg-[#C8572D] mx-auto mb-12" />
 
       {/* Search */}
       <div className="relative max-w-md mx-auto mb-10">
