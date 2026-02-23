@@ -39,12 +39,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-[#0F0F10] text-[#EDEDED] font-['Manrope',sans-serif];
+    @apply bg-[#1A1714] text-[#E8DDD0] font-['Source_Sans_3',sans-serif];
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }
 
