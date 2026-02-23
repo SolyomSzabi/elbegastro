@@ -25,8 +25,7 @@ function App() {
           </div>
           <Toaster position="top-right" theme="dark" richColors />
         </BrowserRouter>
-      </CartProvider>
-    </LanguageProvider>
+    </div>
   );
 }
 
