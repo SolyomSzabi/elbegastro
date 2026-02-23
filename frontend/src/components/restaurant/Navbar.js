@@ -100,19 +100,19 @@ export default function Navbar() {
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
-              <button className="text-[#EDEDED]" data-testid="mobile-menu-toggle">
+              <button className="text-[#E8DDD0]" data-testid="mobile-menu-toggle">
                 {mobileOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-[#0F0F10] border-[#2E2E30] w-72 pt-16">
+            <SheetContent side="right" className="bg-[#1A1714] border-[#332C22] w-72 pt-16">
               <div className="flex flex-col gap-6">
-                <button onClick={() => scrollToSection('menu')} className="text-lg tracking-widest uppercase text-[#A1A1AA] hover:text-[#D4AF37] transition-colors text-left" data-testid="mobile-nav-menu">
+                <button onClick={() => scrollToSection('menu')} className="text-lg tracking-[0.2em] uppercase text-[#8B7D6B] hover:text-[#C8572D] transition-colors text-left font-['Oswald',sans-serif]" data-testid="mobile-nav-menu">
                   {t('nav.menu')}
                 </button>
-                <button onClick={() => scrollToSection('contact')} className="text-lg tracking-widest uppercase text-[#A1A1AA] hover:text-[#D4AF37] transition-colors text-left" data-testid="mobile-nav-contact">
+                <button onClick={() => scrollToSection('contact')} className="text-lg tracking-[0.2em] uppercase text-[#8B7D6B] hover:text-[#C8572D] transition-colors text-left font-['Oswald',sans-serif]" data-testid="mobile-nav-contact">
                   {t('nav.contact')}
                 </button>
-                <Link to="/checkout" onClick={() => setMobileOpen(false)} className="text-lg tracking-widest uppercase text-[#D4AF37] text-left" data-testid="mobile-nav-cart">
+                <Link to="/checkout" onClick={() => setMobileOpen(false)} className="text-lg tracking-[0.2em] uppercase text-[#C8572D] text-left font-['Oswald',sans-serif]" data-testid="mobile-nav-cart">
                   {t('nav.cart')} ({totalItems})
                 </Link>
               </div>
