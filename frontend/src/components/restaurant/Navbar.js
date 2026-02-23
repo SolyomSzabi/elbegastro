@@ -77,12 +77,12 @@ export default function Navbar() {
         {/* Mobile Nav */}
         <div className="flex md:hidden items-center gap-4">
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-[#A1A1AA]" data-testid="mobile-language-switcher">
+            <DropdownMenuTrigger className="text-[#8B7D6B]" data-testid="mobile-language-switcher">
               <Globe size={20} strokeWidth={1.5} />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-[#18181B] border-[#2E2E30]">
+            <DropdownMenuContent className="bg-[#252019] border-[#332C22]">
               {LANGS.map(l => (
-                <DropdownMenuItem key={l.code} onClick={() => setLanguage(l.code)} className={`cursor-pointer ${language === l.code ? 'text-[#D4AF37]' : 'text-[#EDEDED]'}`}>
+                <DropdownMenuItem key={l.code} onClick={() => setLanguage(l.code)} className={`cursor-pointer ${language === l.code ? 'text-[#C8572D]' : 'text-[#E8DDD0]'}`}>
                   <span className="mr-2">{l.flag}</span> {l.label}
                 </DropdownMenuItem>
               ))}
@@ -90,9 +90,9 @@ export default function Navbar() {
           </DropdownMenu>
 
           <Link to="/checkout" className="relative" data-testid="mobile-cart-button">
-            <ShoppingCart size={22} className="text-[#D4AF37]" strokeWidth={1.5} />
+            <ShoppingCart size={22} className="text-[#C8572D]" strokeWidth={1.5} />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-[#800020] text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+              <span className="absolute -top-2 -right-2 bg-[#E8DDD0] text-[#1A1714] text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
                 {totalItems}
               </span>
             )}
