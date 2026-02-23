@@ -154,7 +154,7 @@ export default function MenuSection() {
       </div>
 
       {filteredItems.length === 0 && (
-        <p className="text-center text-[#A1A1AA] text-lg mt-12 font-['Manrope',sans-serif]" data-testid="no-items-found">
+        <p className="text-center text-[#8B7D6B] text-lg mt-12 font-['Source_Sans_3',sans-serif]" data-testid="no-items-found">
           {search ? 'No items found' : ''}
         </p>
       )}
