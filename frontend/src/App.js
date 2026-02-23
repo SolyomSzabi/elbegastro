@@ -12,9 +12,10 @@ import OrderConfirmation from '@/pages/OrderConfirmation';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#1A1714] text-[#E8DDD0]">
-      <BrowserRouter>
-          <div className="min-h-screen">
+    <LanguageProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <div className="min-h-screen bg-[#1A1714] text-[#E8DDD0]">
             <Navbar />
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -25,7 +26,8 @@ function App() {
           </div>
           <Toaster position="top-right" theme="dark" richColors />
         </BrowserRouter>
-    </div>
+      </CartProvider>
+    </LanguageProvider>
   );
 }
 
