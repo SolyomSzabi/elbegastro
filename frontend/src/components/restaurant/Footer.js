@@ -11,9 +11,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <img
-              src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/0jj26jng_WhatsApp_Image_2026-02-22_at_21.57.27-removebg-preview.png"
+              src="https://customer-assets.emergentagent.com/job_dine-digital-33/artifacts/ddrlmspr_WhatsApp%20Image%202026-02-22%20at%2021.57.27.jpeg"
               alt="EL&BE"
-              className="h-16 w-auto mx-auto md:mx-0"
+              className="h-14 w-auto mx-auto md:mx-0 rounded-sm"
             />
           </div>
 
