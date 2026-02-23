@@ -49,13 +49,13 @@ export default function Navbar() {
 
           {/* Language Switcher */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-2 text-sm text-[#A1A1AA] hover:text-[#D4AF37] transition-colors" data-testid="language-switcher">
+            <DropdownMenuTrigger className="flex items-center gap-2 text-sm text-[#8B7D6B] hover:text-[#C8572D] transition-colors" data-testid="language-switcher">
               <Globe size={16} strokeWidth={1.5} />
-              <span className="uppercase">{language}</span>
+              <span className="uppercase font-['Oswald',sans-serif]">{language}</span>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-[#18181B] border-[#2E2E30]" data-testid="language-dropdown">
+            <DropdownMenuContent className="bg-[#252019] border-[#332C22]" data-testid="language-dropdown">
               {LANGS.map(l => (
-                <DropdownMenuItem key={l.code} onClick={() => setLanguage(l.code)} className={`cursor-pointer ${language === l.code ? 'text-[#D4AF37]' : 'text-[#EDEDED]'}`} data-testid={`lang-${l.code}`}>
+                <DropdownMenuItem key={l.code} onClick={() => setLanguage(l.code)} className={`cursor-pointer ${language === l.code ? 'text-[#C8572D]' : 'text-[#E8DDD0]'}`} data-testid={`lang-${l.code}`}>
                   <span className="mr-2">{l.flag}</span> {l.label}
                 </DropdownMenuItem>
               ))}
@@ -63,11 +63,11 @@ export default function Navbar() {
           </DropdownMenu>
 
           {/* Cart */}
-          <Link to="/checkout" className="relative flex items-center gap-2 bg-[#D4AF37] text-black px-5 py-2.5 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-[#C5A059] transition-all" data-testid="cart-button">
+          <Link to="/checkout" className="relative flex items-center gap-2 bg-[#C8572D] text-white px-5 py-2.5 rounded-sm text-sm font-bold uppercase tracking-[0.15em] hover:bg-[#A84523] transition-all font-['Oswald',sans-serif]" data-testid="cart-button">
             <ShoppingCart size={16} strokeWidth={2} />
             {t('nav.cart')}
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-[#800020] text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold" data-testid="cart-count">
+              <span className="absolute -top-2 -right-2 bg-[#E8DDD0] text-[#1A1714] text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold" data-testid="cart-count">
                 {totalItems}
               </span>
             )}
