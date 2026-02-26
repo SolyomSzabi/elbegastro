@@ -48,11 +48,21 @@ class CheckoutRequest(BaseModel):
 # --- Menu Endpoints ---
 @api_router.get("/menu")
 async def get_menu():
-    return {"items": MENU_ITEMS, "categories": CATEGORIES}
+    items_with_images = []
+    for item in MENU_ITEMS:
+        enriched = {**item}
+        enriched["image"] = ITEM_IMAGES.get(item["id"], CATEGORY_IMAGES.get(item["category"], ""))
+        items_with_images.append(enriched)
+    return {"items": items_with_images, "categories": CATEGORIES}
 
 @api_router.get("/menu/{category}")
 async def get_menu_by_category(category: str):
-    items = [i for i in MENU_ITEMS if i["category"] == category]
+    items = []
+    for i in MENU_ITEMS:
+        if i["category"] == category:
+            enriched = {**i}
+            enriched["image"] = ITEM_IMAGES.get(i["id"], CATEGORY_IMAGES.get(i["category"], ""))
+            items.append(enriched)
     return {"items": items}
 
 # --- Order Endpoints ---
