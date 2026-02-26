@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict
 import uuid
 from datetime import datetime, timezone
-from menu_data import MENU_ITEMS, CATEGORIES
+from menu_data import MENU_ITEMS, CATEGORIES, CATEGORY_IMAGES, ITEM_IMAGES
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
