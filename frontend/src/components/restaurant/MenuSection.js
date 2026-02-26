@@ -107,46 +107,67 @@ export default function MenuSection() {
           return (
             <div
               key={item.id}
-              className="bg-[#252019] border border-[#332C22] hover:border-[#C8572D]/40 rounded-sm p-5 flex flex-col justify-between transition-all duration-300 group"
+              className="bg-[#252019] border border-[#332C22] hover:border-[#C8572D]/40 rounded-sm overflow-hidden flex flex-col transition-all duration-300 group"
               style={{ animationDelay: `${index * 30}ms` }}
               data-testid={`menu-item-${item.id}`}
             >
-              <div>
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <h3 className="text-lg font-semibold text-[#E8DDD0] font-['Oswald',sans-serif] leading-tight uppercase">
+              {/* Image */}
+              {item.image && (
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={getItemName(item)}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#252019] via-transparent to-transparent" />
+                  {/* Price badge */}
+                  <span className="absolute top-3 right-3 bg-[#C8572D] text-white px-3 py-1 text-sm font-bold font-['Bebas_Neue',sans-serif] tracking-wide rounded-sm">
+                    {item.price} RON
+                  </span>
+                  {qty > 0 && (
+                    <span className="absolute top-3 left-3 bg-[#E8DDD0] text-[#1A1714] px-2 py-0.5 text-xs font-bold font-['Oswald',sans-serif] rounded-sm" data-testid={`item-qty-${item.id}`}>
+                      x{qty}
+                    </span>
+                  )}
+                </div>
+              )}
+
+              {/* Content */}
+              <div className="p-4 flex flex-col flex-1">
+                <div className="flex items-start justify-between gap-3 mb-1">
+                  <h3 className="text-base font-semibold text-[#E8DDD0] font-['Oswald',sans-serif] leading-tight uppercase">
                     {getItemName(item)}
                   </h3>
-                  <span className="text-[#C8572D] font-bold text-lg whitespace-nowrap font-['Bebas_Neue',sans-serif] tracking-wide">
-                    {item.price} <span className="text-xs font-['Source_Sans_3',sans-serif]">RON</span>
-                  </span>
+                  {!item.image && (
+                    <span className="text-[#C8572D] font-bold text-lg whitespace-nowrap font-['Bebas_Neue',sans-serif] tracking-wide">
+                      {item.price} <span className="text-xs font-['Source_Sans_3',sans-serif]">RON</span>
+                    </span>
+                  )}
                 </div>
                 {getItemDesc(item) && (
-                  <p className="text-[#8B7D6B] text-sm leading-relaxed mb-2 font-['Source_Sans_3',sans-serif]">
+                  <p className="text-[#8B7D6B] text-sm leading-relaxed mb-1 font-['Source_Sans_3',sans-serif] line-clamp-2">
                     {getItemDesc(item)}
                   </p>
                 )}
                 {item.weight && (
                   <span className="text-xs text-[#5C5347] font-['Source_Sans_3',sans-serif]">{item.weight}</span>
                 )}
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                {qty > 0 && (
-                  <span className="text-xs text-[#C8572D] font-bold font-['Oswald',sans-serif]" data-testid={`item-qty-${item.id}`}>
-                    x{qty}
-                  </span>
-                )}
-                <button
-                  onClick={() => handleAddToCart(item)}
-                  className={`ml-auto flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 font-['Oswald',sans-serif] ${
-                    justAdded
-                      ? 'bg-green-700 text-white'
-                      : 'bg-transparent border border-[#C8572D] text-[#C8572D] hover:bg-[#C8572D] hover:text-white'
-                  }`}
-                  data-testid={`add-to-cart-${item.id}`}
-                >
-                  {justAdded ? <Check size={14} /> : <Plus size={14} />}
-                  {justAdded ? '' : t('menu.addToCart')}
-                </button>
+
+                <div className="mt-auto pt-3">
+                  <button
+                    onClick={() => handleAddToCart(item)}
+                    className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 font-['Oswald',sans-serif] ${
+                      justAdded
+                        ? 'bg-green-700 text-white'
+                        : 'bg-transparent border border-[#C8572D] text-[#C8572D] hover:bg-[#C8572D] hover:text-white'
+                    }`}
+                    data-testid={`add-to-cart-${item.id}`}
+                  >
+                    {justAdded ? <Check size={14} /> : <Plus size={14} />}
+                    {justAdded ? '' : t('menu.addToCart')}
+                  </button>
+                </div>
               </div>
             </div>
           );
