@@ -100,9 +100,19 @@ ITEM_IMAGES = {
     "wine-4": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
     # Extras
     "extra-burger-meat": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
-    "extra-cheese": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
-    "extra-pizza-meat": "https://images.pexels.com/photos/35017348/pexels-photo-35017348.jpeg?auto=compress&cs=tinysrgb&w=400",
-    "extra-pizza-veg": "https://images.pexels.com/photos/2762938/pexels-photo-2762938.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-cheddar": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-blue-cheese": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-camembert": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-pancetta": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-caramelized-onion": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-mozzarella": "https://images.pexels.com/photos/35017348/pexels-photo-35017348.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-salam": "https://images.pexels.com/photos/35017348/pexels-photo-35017348.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-sunca": "https://images.pexels.com/photos/35017348/pexels-photo-35017348.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-piept-pui": "https://images.pexels.com/photos/35017348/pexels-photo-35017348.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-ciuperci": "https://images.pexels.com/photos/2762938/pexels-photo-2762938.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-porumb": "https://images.pexels.com/photos/2762938/pexels-photo-2762938.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-ceapa": "https://images.pexels.com/photos/2762938/pexels-photo-2762938.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-jalapeno": "https://images.pexels.com/photos/2762938/pexels-photo-2762938.jpeg?auto=compress&cs=tinysrgb&w=400",
     "sauce-garlic": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
     "sauce-classic": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
     "sauce-cheddar": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -114,12 +124,22 @@ ITEM_IMAGES = {
 
 # EXTRAS - sauces, extra ingredients, and recommended drinks
 EXTRAS = [
-    # Burger extras
+    # Burger extras - individual toppings
     {"id": "extra-burger-meat", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Carne de Vită Black Angus (Burger Dublu)", "name_en": "Extra Black Angus Beef (Double Burger)", "name_hu": "Extra Black Angus Marhahús (Dupla Burger)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "130g", "price": 15.0},
-    {"id": "extra-cheese", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Cheddar / Blue Cheese / Camembert / Pancetta / Ceapă Caramelizată", "name_en": "Extra Cheddar / Blue Cheese / Camembert / Pancetta / Caramelized Onion", "name_hu": "Extra Cheddar / Rokfort / Camembert / Pancetta / Karamellizált Hagyma", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
-    # Pizza extras
-    {"id": "extra-pizza-meat", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Mozzarella / Salam / Șuncă / Piept de Pui", "name_en": "Extra Mozzarella / Salami / Ham / Chicken Breast", "name_hu": "Extra Mozzarella / Szalámi / Sonka / Csirkemell", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
-    {"id": "extra-pizza-veg", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Ciuperci / Porumb / Ceapă / Jalapeno", "name_en": "Extra Mushrooms / Corn / Onion / Jalapeno", "name_hu": "Extra Gomba / Kukorica / Hagyma / Jalapeno", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
+    {"id": "extra-cheddar", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Cheddar", "name_en": "Extra Cheddar", "name_hu": "Extra Cheddar", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
+    {"id": "extra-blue-cheese", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Blue Cheese", "name_en": "Extra Blue Cheese", "name_hu": "Extra Rokfort Sajt", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
+    {"id": "extra-camembert", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Camembert", "name_en": "Extra Camembert", "name_hu": "Extra Camembert", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
+    {"id": "extra-pancetta", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Pancetta", "name_en": "Extra Pancetta", "name_hu": "Extra Pancetta", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
+    {"id": "extra-caramelized-onion", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Ceapă Caramelizată", "name_en": "Extra Caramelized Onion", "name_hu": "Extra Karamellizált Hagyma", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
+    # Pizza extras - individual toppings
+    {"id": "extra-mozzarella", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Mozzarella", "name_en": "Extra Mozzarella", "name_hu": "Extra Mozzarella", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
+    {"id": "extra-salam", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Salam", "name_en": "Extra Salami", "name_hu": "Extra Szalámi", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
+    {"id": "extra-sunca", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Șuncă", "name_en": "Extra Ham", "name_hu": "Extra Sonka", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
+    {"id": "extra-piept-pui", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Piept de Pui", "name_en": "Extra Chicken Breast", "name_hu": "Extra Csirkemell", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
+    {"id": "extra-ciuperci", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Ciuperci", "name_en": "Extra Mushrooms", "name_hu": "Extra Gomba", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
+    {"id": "extra-porumb", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Porumb", "name_en": "Extra Corn", "name_hu": "Extra Kukorica", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
+    {"id": "extra-ceapa", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Ceapă", "name_en": "Extra Onion", "name_hu": "Extra Hagyma", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
+    {"id": "extra-jalapeno", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Jalapeno", "name_en": "Extra Jalapeno", "name_hu": "Extra Jalapeno", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
     # Sauces (for burgers, pizza, mains, snacks)
     {"id": "sauce-garlic", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack", "appetizer"], "name_ro": "Sos de Usturoi", "name_en": "Garlic Sauce", "name_hu": "Fokhagymaszósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
     {"id": "sauce-classic", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack", "appetizer"], "name_ro": "Sos Classic", "name_en": "Classic Sauce", "name_hu": "Klasszikus Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},

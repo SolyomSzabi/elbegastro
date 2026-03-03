@@ -83,28 +83,27 @@ export default function ExtrasModal({ isOpen, onClose, addedItem, extras, drinkR
           {ingredients.length > 0 && (
             <div>
               <h4 className="text-sm font-bold uppercase tracking-[0.15em] text-[#E8DDD0] mb-3 font-['Oswald',sans-serif]">{labels.ingredients}</h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-2">
                 {ingredients.map(extra => {
                   const qty = getQty(extra.id);
                   const justAdded = addedExtras[extra.id];
                   return (
-                    <div key={extra.id} className="flex items-center justify-between bg-[#252019] border border-[#332C22] rounded-sm px-4 py-3" data-testid={`extra-${extra.id}`}>
-                      <div className="flex-1 min-w-0 mr-3">
-                        <p className="text-sm text-[#E8DDD0] font-['Source_Sans_3',sans-serif] truncate">{getItemName(extra)}</p>
-                        <p className="text-xs text-[#5C5347] font-['Source_Sans_3',sans-serif]">{extra.weight}</p>
+                    <button
+                      key={extra.id}
+                      onClick={() => handleAddExtra(extra)}
+                      className={`flex items-center justify-between px-3 py-2.5 rounded-sm border transition-all text-left ${justAdded ? 'bg-green-700/20 border-green-700 text-green-400' : 'bg-[#252019] border-[#332C22] hover:border-[#C8572D]'}`}
+                      data-testid={`add-extra-${extra.id}`}
+                    >
+                      <div className="min-w-0 mr-2">
+                        <p className="text-xs text-[#E8DDD0] font-['Source_Sans_3',sans-serif] truncate">{getItemName(extra)}</p>
+                        <p className="text-[10px] text-[#5C5347] font-['Source_Sans_3',sans-serif]">{extra.weight}</p>
+                        <p className="text-xs text-[#C8572D] font-['Bebas_Neue',sans-serif]">+{extra.price} RON</p>
                       </div>
-                      <div className="flex items-center gap-3 shrink-0">
-                        <span className="text-sm font-bold text-[#C8572D] font-['Bebas_Neue',sans-serif] tracking-wide whitespace-nowrap">+{extra.price} RON</span>
+                      <div className="flex items-center gap-1 shrink-0">
                         {qty > 0 && <span className="text-xs text-[#C8572D] font-bold">x{qty}</span>}
-                        <button
-                          onClick={() => handleAddExtra(extra)}
-                          className={`w-8 h-8 flex items-center justify-center rounded-sm transition-all ${justAdded ? 'bg-green-700 text-white' : 'border border-[#C8572D] text-[#C8572D] hover:bg-[#C8572D] hover:text-white'}`}
-                          data-testid={`add-extra-${extra.id}`}
-                        >
-                          {justAdded ? <Check size={14} /> : <Plus size={14} />}
-                        </button>
+                        {justAdded ? <Check size={12} className="text-green-400" /> : <Plus size={12} className="text-[#C8572D]" />}
                       </div>
-                    </div>
+                    </button>
                   );
                 })}
               </div>
