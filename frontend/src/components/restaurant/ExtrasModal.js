@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 
 export default function ExtrasModal({ isOpen, onClose, addedItem, extras, drinkRecommendations, allItems }) {
   const { t, language, getItemName } = useLanguage();
-  const { addItem, items: cartItems } = useCart();
+  const { addItem, addExtra, items: cartItems } = useCart();
   const [addedExtras, setAddedExtras] = React.useState({});
 
   // Get relevant extras for the added item's category
@@ -28,7 +28,13 @@ export default function ExtrasModal({ isOpen, onClose, addedItem, extras, drinkR
   if (!isOpen || !addedItem) return null;
 
   const handleAddExtra = (item) => {
-    addItem(item);
+    // Extras/sauces get linked to the parent food item
+    if (item.category === 'extra') {
+      addExtra(item, addedItem.id);
+    } else {
+      // Drinks are standalone items
+      addItem(item);
+    }
     setAddedExtras(prev => ({ ...prev, [item.id]: true }));
     toast.success(`${getItemName(item)} +1`, { duration: 1200 });
     setTimeout(() => setAddedExtras(prev => ({ ...prev, [item.id]: false })), 1000);

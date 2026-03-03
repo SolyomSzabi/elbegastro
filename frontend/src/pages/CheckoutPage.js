@@ -2,22 +2,34 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Minus, Plus, Trash2, CreditCard, Banknote, ArrowLeft, ShoppingCart } from 'lucide-react';
+import { Minus, Plus, Trash2, CreditCard, Banknote, ArrowLeft, ShoppingCart, MessageSquare, X } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function CheckoutPage() {
-  const { items, updateQuantity, removeItem, totalPrice, totalItems, clearCart } = useCart();
+  const { items, foodItems, extraItems, updateQuantity, removeItem, updateNotes, totalPrice, totalItems, clearCart, getLinkedExtras } = useCart();
   const { t, language, getItemName } = useLanguage();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({ customer_name: '', phone: '', email: '', notes: '' });
   const [paymentMethod, setPaymentMethod] = useState('card');
   const [loading, setLoading] = useState(false);
+  const [expandedNotes, setExpandedNotes] = useState({});
 
   const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const toggleNotes = (itemId) => {
+    setExpandedNotes(prev => ({ ...prev, [itemId]: !prev[itemId] }));
+  };
+
+  const notesLabels = {
+    ro: { addNote: 'Adaugă notă', notePlaceholder: 'Notă specială (alergii, preferințe...)', extras: 'Extra' },
+    en: { addNote: 'Add note', notePlaceholder: 'Special note (allergies, preferences...)', extras: 'Extras' },
+    hu: { addNote: 'Megjegyzés', notePlaceholder: 'Különleges megjegyzés (allergiák, preferenciák...)', extras: 'Extrák' },
+  };
+  const noteLabel = notesLabels[language] || notesLabels.en;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,10 +38,32 @@ export default function CheckoutPage() {
 
     setLoading(true);
     try {
+      // Build items with notes including linked extras
+      const orderItems = items.map(i => {
+        let itemNotes = '';
+        if (!i.parentId) {
+          // Food item - compile notes
+          const linked = getLinkedExtras(i.id);
+          const extraNames = linked.map(e => `${getItemName(e)} x${e.quantity}`).join(', ');
+          const parts = [];
+          if (extraNames) parts.push(`${noteLabel.extras}: ${extraNames}`);
+          if (i.notes) parts.push(i.notes);
+          itemNotes = parts.join(' | ');
+        }
+        return {
+          item_id: i._cartKey || i.id,
+          quantity: i.quantity,
+          notes: itemNotes
+        };
+      });
+
       const orderRes = await axios.post(`${API}/orders`, {
         ...formData,
         payment_method: paymentMethod,
-        items: items.map(i => ({ item_id: i.id, quantity: i.quantity })),
+        items: orderItems.map(i => ({ item_id: i.item_id, quantity: i.quantity })),
+        notes: formData.notes + (orderItems.filter(i => i.notes).length > 0
+          ? '\n\n--- Per-item notes ---\n' + orderItems.filter(i => i.notes).map(i => `${i.item_id}: ${i.notes}`).join('\n')
+          : ''),
         language
       });
 
@@ -152,27 +186,67 @@ export default function CheckoutPage() {
         <div className="lg:col-span-2" data-testid="order-summary">
           <div className="bg-[#252019] border border-[#332C22] rounded-sm p-6 sticky top-24">
             <h3 className="text-xl font-semibold mb-6 font-['Oswald',sans-serif]">{t('checkout.orderSummary')}</h3>
-            <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
-              {items.map(item => (
-                <div key={item.id} className="flex items-start gap-3" data-testid={`summary-item-${item.id}`}>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-[#E8DDD0] font-semibold font-['Oswald',sans-serif] truncate uppercase">{getItemName(item)}</p>
-                    <p className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">{item.price} RON</p>
+            <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+              {foodItems.map(item => {
+                const linked = getLinkedExtras(item.id);
+                const isNotesOpen = expandedNotes[item.id];
+                return (
+                  <div key={item.id} className="bg-[#1A1714] border border-[#332C22] rounded-sm p-3" data-testid={`summary-item-${item.id}`}>
+                    {/* Main item row */}
+                    <div className="flex items-start gap-3">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm text-[#E8DDD0] font-semibold font-['Oswald',sans-serif] truncate uppercase">{getItemName(item)}</p>
+                        <p className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">{item.price} RON</p>
+                      </div>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-minus-${item.id}`}>
+                          <Minus size={10} />
+                        </button>
+                        <span className="text-sm font-bold text-[#E8DDD0] w-5 text-center font-['Source_Sans_3',sans-serif]" data-testid={`qty-display-${item.id}`}>{item.quantity}</span>
+                        <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-plus-${item.id}`}>
+                          <Plus size={10} />
+                        </button>
+                        <button onClick={() => removeItem(item.id)} className="w-6 h-6 flex items-center justify-center text-[#5C5347] hover:text-red-500 transition-colors" data-testid={`remove-item-${item.id}`}>
+                          <Trash2 size={12} />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Linked extras as tags */}
+                    {linked.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mt-2" data-testid={`linked-extras-${item.id}`}>
+                        {linked.map(extra => (
+                          <span key={extra._cartKey} className="inline-flex items-center gap-1 bg-[#C8572D]/15 border border-[#C8572D]/30 text-[#C8572D] text-[10px] px-2 py-0.5 rounded-sm font-['Source_Sans_3',sans-serif]">
+                            {getItemName(extra)} x{extra.quantity}
+                            <button onClick={() => removeItem(extra.id, extra._cartKey)} className="hover:text-red-400 transition-colors" data-testid={`remove-extra-${extra._cartKey}`}>
+                              <X size={10} />
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Notes toggle + input */}
+                    <div className="mt-2">
+                      <button onClick={() => toggleNotes(item.id)} className="flex items-center gap-1 text-[10px] text-[#8B7D6B] hover:text-[#C8572D] transition-colors uppercase tracking-wider font-['Oswald',sans-serif]" data-testid={`toggle-notes-${item.id}`}>
+                        <MessageSquare size={10} />
+                        {noteLabel.addNote}
+                        {item.notes && <span className="w-1.5 h-1.5 rounded-full bg-[#C8572D] ml-1" />}
+                      </button>
+                      {isNotesOpen && (
+                        <textarea
+                          value={item.notes}
+                          onChange={e => updateNotes(item.id, e.target.value)}
+                          placeholder={noteLabel.notePlaceholder}
+                          rows={2}
+                          className="w-full mt-1.5 bg-[#252019] border border-[#332C22] focus:border-[#C8572D] rounded-sm px-2 py-1.5 text-xs text-[#E8DDD0] placeholder:text-[#5C5347] focus:ring-0 focus:outline-none transition-colors resize-none font-['Source_Sans_3',sans-serif]"
+                          data-testid={`item-notes-${item.id}`}
+                        />
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-7 h-7 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-minus-${item.id}`}>
-                      <Minus size={12} />
-                    </button>
-                    <span className="text-sm font-bold text-[#E8DDD0] w-6 text-center font-['Source_Sans_3',sans-serif]" data-testid={`qty-display-${item.id}`}>{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="w-7 h-7 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-plus-${item.id}`}>
-                      <Plus size={12} />
-                    </button>
-                    <button onClick={() => removeItem(item.id)} className="w-7 h-7 flex items-center justify-center text-[#5C5347] hover:text-red-500 transition-colors" data-testid={`remove-item-${item.id}`}>
-                      <Trash2 size={14} />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="mt-6 pt-4 border-t border-[#332C22]">
