@@ -98,6 +98,48 @@ ITEM_IMAGES = {
     "wine-2": "https://images.unsplash.com/photo-1695634580213-c384a6201eee?w=400&q=80",
     "wine-3": "https://images.unsplash.com/photo-1695634580213-c384a6201eee?w=400&q=80",
     "wine-4": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    # Extras
+    "extra-burger-meat": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-cheese": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-pizza-meat": "https://images.pexels.com/photos/35017348/pexels-photo-35017348.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "extra-pizza-veg": "https://images.pexels.com/photos/2762938/pexels-photo-2762938.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-garlic": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-classic": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-cheddar": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-bbq": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-ketchup": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-sweet-chilli": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-mushroom": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+}
+
+# EXTRAS - sauces, extra ingredients, and recommended drinks
+EXTRAS = [
+    # Burger extras
+    {"id": "extra-burger-meat", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Carne de Vită Black Angus (Burger Dublu)", "name_en": "Extra Black Angus Beef (Double Burger)", "name_hu": "Extra Black Angus Marhahús (Dupla Burger)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "130g", "price": 15.0},
+    {"id": "extra-cheese", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Cheddar / Blue Cheese / Camembert / Pancetta / Ceapă Caramelizată", "name_en": "Extra Cheddar / Blue Cheese / Camembert / Pancetta / Caramelized Onion", "name_hu": "Extra Cheddar / Rokfort / Camembert / Pancetta / Karamellizált Hagyma", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
+    # Pizza extras
+    {"id": "extra-pizza-meat", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Mozzarella / Salam / Șuncă / Piept de Pui", "name_en": "Extra Mozzarella / Salami / Ham / Chicken Breast", "name_hu": "Extra Mozzarella / Szalámi / Sonka / Csirkemell", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
+    {"id": "extra-pizza-veg", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Ciuperci / Porumb / Ceapă / Jalapeno", "name_en": "Extra Mushrooms / Corn / Onion / Jalapeno", "name_hu": "Extra Gomba / Kukorica / Hagyma / Jalapeno", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
+    # Sauces (for burgers, pizza, mains, snacks)
+    {"id": "sauce-garlic", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack", "appetizer"], "name_ro": "Sos de Usturoi", "name_en": "Garlic Sauce", "name_hu": "Fokhagymaszósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
+    {"id": "sauce-classic", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack", "appetizer"], "name_ro": "Sos Classic", "name_en": "Classic Sauce", "name_hu": "Klasszikus Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
+    {"id": "sauce-cheddar", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "main", "snack"], "name_ro": "Sos Cheddar", "name_en": "Cheddar Sauce", "name_hu": "Cheddar Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
+    {"id": "sauce-bbq", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "main", "snack"], "name_ro": "Sos BBQ", "name_en": "BBQ Sauce", "name_hu": "BBQ Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
+    {"id": "sauce-ketchup", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack"], "name_ro": "Ketchup", "name_en": "Ketchup", "name_hu": "Ketchup", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
+    {"id": "sauce-sweet-chilli", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "snack", "appetizer"], "name_ro": "Sos Sweet Chilli", "name_en": "Sweet Chilli Sauce", "name_hu": "Sweet Chilli Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
+    {"id": "sauce-mushroom", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main"], "name_ro": "Sos de Ciuperci", "name_en": "Mushroom Sauce", "name_hu": "Gombaszósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 8.0},
+]
+
+# Drink recommendations for food categories
+DRINK_RECOMMENDATIONS = {
+    "burger": ["soft-1", "soft-2", "beer-1", "beer-2", "lemonade-1"],
+    "pizza": ["soft-1", "soft-3", "beer-1", "beer-3", "lemonade-2"],
+    "appetizer": ["wine-4", "cocktail-1", "lemonade-3"],
+    "salad": ["fresh-1", "lemonade-1", "soft-5"],
+    "pasta": ["wine-2", "wine-4", "soft-6"],
+    "main": ["wine-1", "beer-3", "cocktail-2", "soft-1"],
+    "snack": ["soft-1", "soft-2", "beer-2", "lemonade-4"],
+    "dessert": ["coffee-1", "coffee-5", "coffee-8"],
 }
 
 MENU_ITEMS = [

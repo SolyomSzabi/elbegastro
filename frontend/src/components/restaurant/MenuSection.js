@@ -4,6 +4,7 @@ import { useCart } from '@/contexts/CartContext';
 import { Search, Plus, Check } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
+import ExtrasModal from './ExtrasModal';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -12,14 +13,19 @@ export default function MenuSection() {
   const { addItem, items: cartItems } = useCart();
   const [menuItems, setMenuItems] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [extras, setExtras] = useState([]);
+  const [drinkRecommendations, setDrinkRecommendations] = useState({});
   const [activeCategory, setActiveCategory] = useState('all');
   const [search, setSearch] = useState('');
   const [addedItems, setAddedItems] = useState({});
+  const [extrasModal, setExtrasModal] = useState({ open: false, item: null });
 
   useEffect(() => {
     axios.get(`${API}/menu`).then(res => {
       setMenuItems(res.data.items);
       setCategories(res.data.categories);
+      setExtras(res.data.extras || []);
+      setDrinkRecommendations(res.data.drink_recommendations || {});
     }).catch(() => {});
   }, []);
 
@@ -43,6 +49,11 @@ export default function MenuSection() {
     setAddedItems(prev => ({ ...prev, [item.id]: true }));
     toast.success(`${getItemName(item)} +1`, { duration: 1500 });
     setTimeout(() => setAddedItems(prev => ({ ...prev, [item.id]: false })), 1000);
+    // Show extras modal for food categories (not drinks/extras)
+    const foodCategories = ['burger', 'pizza', 'appetizer', 'salad', 'pasta', 'main', 'snack', 'dessert'];
+    if (foodCategories.includes(item.category)) {
+      setExtrasModal({ open: true, item });
+    }
   };
 
   const getCartQuantity = (itemId) => {
@@ -179,6 +190,16 @@ export default function MenuSection() {
           {search ? 'No items found' : ''}
         </p>
       )}
+
+      {/* Extras Recommendation Modal */}
+      <ExtrasModal
+        isOpen={extrasModal.open}
+        onClose={() => setExtrasModal({ open: false, item: null })}
+        addedItem={extrasModal.item}
+        extras={extras}
+        drinkRecommendations={drinkRecommendations}
+        allItems={menuItems}
+      />
     </section>
   );
 }

@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict
 import uuid
 from datetime import datetime, timezone
-from menu_data import MENU_ITEMS, CATEGORIES, CATEGORY_IMAGES, ITEM_IMAGES
+from menu_data import MENU_ITEMS, CATEGORIES, CATEGORY_IMAGES, ITEM_IMAGES, EXTRAS, DRINK_RECOMMENDATIONS
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -53,7 +53,12 @@ async def get_menu():
         enriched = {**item}
         enriched["image"] = ITEM_IMAGES.get(item["id"], CATEGORY_IMAGES.get(item["category"], ""))
         items_with_images.append(enriched)
-    return {"items": items_with_images, "categories": CATEGORIES}
+    extras_with_images = []
+    for extra in EXTRAS:
+        enriched = {**extra}
+        enriched["image"] = ITEM_IMAGES.get(extra["id"], CATEGORY_IMAGES.get("appetizer", ""))
+        extras_with_images.append(enriched)
+    return {"items": items_with_images, "categories": CATEGORIES, "extras": extras_with_images, "drink_recommendations": DRINK_RECOMMENDATIONS}
 
 @api_router.get("/menu/{category}")
 async def get_menu_by_category(category: str):
@@ -68,9 +73,10 @@ async def get_menu_by_category(category: str):
 # --- Order Endpoints ---
 def calculate_order_total(items: List[CartItem]) -> float:
     menu_map = {item["id"]: item["price"] for item in MENU_ITEMS}
+    extras_map = {item["id"]: item["price"] for item in EXTRAS}
     total = 0.0
     for cart_item in items:
-        price = menu_map.get(cart_item.item_id, 0)
+        price = menu_map.get(cart_item.item_id, extras_map.get(cart_item.item_id, 0))
         total += price * cart_item.quantity
     return round(total, 2)
 
@@ -81,8 +87,9 @@ async def create_order(order: OrderCreate):
 
     items_detail = []
     menu_map = {item["id"]: item for item in MENU_ITEMS}
+    extras_map = {item["id"]: item for item in EXTRAS}
     for cart_item in order.items:
-        menu_item = menu_map.get(cart_item.item_id)
+        menu_item = menu_map.get(cart_item.item_id) or extras_map.get(cart_item.item_id)
         if menu_item:
             lang = order.language
             name_key = f"name_{lang}" if f"name_{lang}" in menu_item else "name_ro"
