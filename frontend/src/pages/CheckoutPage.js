@@ -51,7 +51,7 @@ export default function CheckoutPage() {
           itemNotes = parts.join(' | ');
         }
         return {
-          item_id: i._cartKey || i.id,
+          item_id: i.id,
           quantity: i.quantity,
           notes: itemNotes
         };
