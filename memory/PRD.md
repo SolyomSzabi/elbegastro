@@ -39,6 +39,7 @@ Build a modern, responsive website for "EL&BE" restaurant with online ordering c
 - [x] Per-item notes in cart
 - [x] Backend order creation with price calculation
 - [x] **BUG FIX (2025-03-04)**: Cart instanceId fix - same items with different extras now display correctly as separate entries
+- [x] **FEATURE (2025-03-04)**: Cart now shows extras prices and item subtotals (food + extras)
 
 ---
 

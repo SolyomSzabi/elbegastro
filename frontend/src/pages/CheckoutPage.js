@@ -191,13 +191,16 @@ export default function CheckoutPage() {
               {foodItems.map(item => {
                 const linked = getLinkedExtras(item.instanceId);
                 const isNotesOpen = expandedNotes[item.instanceId];
+                // Calculate extras total and item subtotal
+                const extrasTotal = linked.reduce((sum, e) => sum + (e.price * e.quantity), 0);
+                const itemSubtotal = (item.price * item.quantity) + extrasTotal;
                 return (
                   <div key={item.instanceId} className="bg-[#1A1714] border border-[#332C22] rounded-sm p-3" data-testid={`summary-item-${item.instanceId}`}>
                     {/* Main item row */}
                     <div className="flex items-start gap-3">
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-[#E8DDD0] font-semibold font-['Oswald',sans-serif] truncate uppercase">{getItemName(item)}</p>
-                        <p className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">{item.price} RON</p>
+                        <p className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">{item.price} RON x{item.quantity}</p>
                       </div>
                       <div className="flex items-center gap-1.5 shrink-0">
                         <button onClick={() => updateQuantity(item.instanceId, item.quantity - 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-minus-${item.instanceId}`}>
@@ -213,19 +216,37 @@ export default function CheckoutPage() {
                       </div>
                     </div>
 
-                    {/* Linked extras as tags */}
+                    {/* Linked extras with prices */}
                     {linked.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mt-2" data-testid={`linked-extras-${item.instanceId}`}>
+                      <div className="mt-2 space-y-1" data-testid={`linked-extras-${item.instanceId}`}>
                         {linked.map(extra => (
-                          <span key={extra.instanceId} className="inline-flex items-center gap-1 bg-[#C8572D]/15 border border-[#C8572D]/30 text-[#C8572D] text-[10px] px-2 py-0.5 rounded-sm font-['Source_Sans_3',sans-serif]">
-                            {getItemName(extra)} x{extra.quantity}
-                            <button onClick={() => removeItem(extra.instanceId)} className="hover:text-red-400 transition-colors" data-testid={`remove-extra-${extra.instanceId}`}>
-                              <X size={10} />
-                            </button>
-                          </span>
+                          <div key={extra.instanceId} className="flex items-center justify-between bg-[#252019] border border-[#332C22] rounded-sm px-2 py-1.5">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="text-[10px] text-[#C8572D] font-['Oswald',sans-serif] uppercase">+</span>
+                              <span className="text-xs text-[#E8DDD0] font-['Source_Sans_3',sans-serif] truncate">{getItemName(extra)}</span>
+                            </div>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <span className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">
+                                {extra.price} RON x{extra.quantity}
+                              </span>
+                              <button onClick={() => removeItem(extra.instanceId)} className="text-[#5C5347] hover:text-red-400 transition-colors" data-testid={`remove-extra-${extra.instanceId}`}>
+                                <X size={12} />
+                              </button>
+                            </div>
+                          </div>
                         ))}
                       </div>
                     )}
+
+                    {/* Item subtotal */}
+                    <div className="mt-2 pt-2 border-t border-[#332C22]/50 flex justify-between items-center">
+                      <span className="text-[10px] text-[#8B7D6B] uppercase tracking-wider font-['Oswald',sans-serif]">
+                        {linked.length > 0 ? 'Subtotal' : ''}
+                      </span>
+                      <span className="text-sm font-bold text-[#C8572D] font-['Bebas_Neue',sans-serif]" data-testid={`item-subtotal-${item.instanceId}`}>
+                        {itemSubtotal.toFixed(2)} RON
+                      </span>
+                    </div>
 
                     {/* Notes toggle + input */}
                     <div className="mt-2">
