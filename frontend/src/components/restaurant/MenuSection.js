@@ -18,7 +18,7 @@ export default function MenuSection() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [search, setSearch] = useState('');
   const [addedItems, setAddedItems] = useState({});
-  const [extrasModal, setExtrasModal] = useState({ open: false, item: null });
+  const [extrasModal, setExtrasModal] = useState({ open: false, item: null, instanceId: null });
 
   useEffect(() => {
     axios.get(`${API}/menu`).then(res => {
@@ -45,20 +45,19 @@ export default function MenuSection() {
   }, [menuItems, activeCategory, search, language, getItemName, getItemDesc]);
 
   const handleAddToCart = (item) => {
-    addItem(item);
+    const instanceId = addItem(item);
     setAddedItems(prev => ({ ...prev, [item.id]: true }));
     toast.success(`${getItemName(item)} +1`, { duration: 1500 });
     setTimeout(() => setAddedItems(prev => ({ ...prev, [item.id]: false })), 1000);
-    // Show extras modal for food categories (not drinks/extras)
+    // Show extras modal for food categories
     const foodCategories = ['burger', 'pizza', 'appetizer', 'salad', 'pasta', 'main', 'snack', 'dessert'];
     if (foodCategories.includes(item.category)) {
-      setExtrasModal({ open: true, item });
+      setExtrasModal({ open: true, item, instanceId });
     }
   };
 
   const getCartQuantity = (itemId) => {
-    const cartItem = cartItems.find(i => i.id === itemId);
-    return cartItem ? cartItem.quantity : 0;
+    return cartItems.filter(i => i.id === itemId && !i.parentInstanceId).reduce((sum, i) => sum + i.quantity, 0);
   };
 
   return (
@@ -194,8 +193,9 @@ export default function MenuSection() {
       {/* Extras Recommendation Modal */}
       <ExtrasModal
         isOpen={extrasModal.open}
-        onClose={() => setExtrasModal({ open: false, item: null })}
+        onClose={() => setExtrasModal({ open: false, item: null, instanceId: null })}
         addedItem={extrasModal.item}
+        instanceId={extrasModal.instanceId}
         extras={extras}
         drinkRecommendations={drinkRecommendations}
         allItems={menuItems}

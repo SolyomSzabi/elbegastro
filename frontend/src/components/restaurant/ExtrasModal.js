@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from 'sonner';
 
-export default function ExtrasModal({ isOpen, onClose, addedItem, extras, drinkRecommendations, allItems }) {
+export default function ExtrasModal({ isOpen, onClose, addedItem, instanceId, extras, drinkRecommendations, allItems }) {
   const { t, language, getItemName } = useLanguage();
   const { addItem, addExtra, items: cartItems } = useCart();
   const [addedExtras, setAddedExtras] = React.useState({});
@@ -28,9 +28,9 @@ export default function ExtrasModal({ isOpen, onClose, addedItem, extras, drinkR
   if (!isOpen || !addedItem) return null;
 
   const handleAddExtra = (item) => {
-    // Extras/sauces get linked to the parent food item
-    if (item.category === 'extra') {
-      addExtra(item, addedItem.id);
+    // Extras/sauces get linked to the parent food item using instanceId
+    if (item.category === 'extra' && instanceId) {
+      addExtra(item, instanceId);
     } else {
       // Drinks are standalone items
       addItem(item);

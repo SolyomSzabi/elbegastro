@@ -41,9 +41,9 @@ export default function CheckoutPage() {
       // Build items with notes including linked extras
       const orderItems = items.map(i => {
         let itemNotes = '';
-        if (!i.parentId) {
-          // Food item - compile notes
-          const linked = getLinkedExtras(i.id);
+        if (!i.parentInstanceId) {
+          // Food item - compile notes using instanceId for linked extras
+          const linked = getLinkedExtras(i.instanceId);
           const extraNames = linked.map(e => `${getItemName(e)} x${e.quantity}`).join(', ');
           const parts = [];
           if (extraNames) parts.push(`${noteLabel.extras}: ${extraNames}`);
@@ -52,6 +52,7 @@ export default function CheckoutPage() {
         }
         return {
           item_id: i.id,
+          instance_id: i.instanceId,
           quantity: i.quantity,
           notes: itemNotes
         };
@@ -188,10 +189,10 @@ export default function CheckoutPage() {
             <h3 className="text-xl font-semibold mb-6 font-['Oswald',sans-serif]">{t('checkout.orderSummary')}</h3>
             <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
               {foodItems.map(item => {
-                const linked = getLinkedExtras(item.id);
-                const isNotesOpen = expandedNotes[item.id];
+                const linked = getLinkedExtras(item.instanceId);
+                const isNotesOpen = expandedNotes[item.instanceId];
                 return (
-                  <div key={item.id} className="bg-[#1A1714] border border-[#332C22] rounded-sm p-3" data-testid={`summary-item-${item.id}`}>
+                  <div key={item.instanceId} className="bg-[#1A1714] border border-[#332C22] rounded-sm p-3" data-testid={`summary-item-${item.instanceId}`}>
                     {/* Main item row */}
                     <div className="flex items-start gap-3">
                       <div className="flex-1 min-w-0">
@@ -199,14 +200,14 @@ export default function CheckoutPage() {
                         <p className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">{item.price} RON</p>
                       </div>
                       <div className="flex items-center gap-1.5 shrink-0">
-                        <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-minus-${item.id}`}>
+                        <button onClick={() => updateQuantity(item.instanceId, item.quantity - 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-minus-${item.instanceId}`}>
                           <Minus size={10} />
                         </button>
-                        <span className="text-sm font-bold text-[#E8DDD0] w-5 text-center font-['Source_Sans_3',sans-serif]" data-testid={`qty-display-${item.id}`}>{item.quantity}</span>
-                        <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-plus-${item.id}`}>
+                        <span className="text-sm font-bold text-[#E8DDD0] w-5 text-center font-['Source_Sans_3',sans-serif]" data-testid={`qty-display-${item.instanceId}`}>{item.quantity}</span>
+                        <button onClick={() => updateQuantity(item.instanceId, item.quantity + 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-plus-${item.instanceId}`}>
                           <Plus size={10} />
                         </button>
-                        <button onClick={() => removeItem(item.id)} className="w-6 h-6 flex items-center justify-center text-[#5C5347] hover:text-red-500 transition-colors" data-testid={`remove-item-${item.id}`}>
+                        <button onClick={() => removeItem(item.instanceId)} className="w-6 h-6 flex items-center justify-center text-[#5C5347] hover:text-red-500 transition-colors" data-testid={`remove-item-${item.instanceId}`}>
                           <Trash2 size={12} />
                         </button>
                       </div>
@@ -214,11 +215,11 @@ export default function CheckoutPage() {
 
                     {/* Linked extras as tags */}
                     {linked.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mt-2" data-testid={`linked-extras-${item.id}`}>
+                      <div className="flex flex-wrap gap-1.5 mt-2" data-testid={`linked-extras-${item.instanceId}`}>
                         {linked.map(extra => (
-                          <span key={extra._cartKey} className="inline-flex items-center gap-1 bg-[#C8572D]/15 border border-[#C8572D]/30 text-[#C8572D] text-[10px] px-2 py-0.5 rounded-sm font-['Source_Sans_3',sans-serif]">
+                          <span key={extra.instanceId} className="inline-flex items-center gap-1 bg-[#C8572D]/15 border border-[#C8572D]/30 text-[#C8572D] text-[10px] px-2 py-0.5 rounded-sm font-['Source_Sans_3',sans-serif]">
                             {getItemName(extra)} x{extra.quantity}
-                            <button onClick={() => removeItem(extra.id, extra._cartKey)} className="hover:text-red-400 transition-colors" data-testid={`remove-extra-${extra._cartKey}`}>
+                            <button onClick={() => removeItem(extra.instanceId)} className="hover:text-red-400 transition-colors" data-testid={`remove-extra-${extra.instanceId}`}>
                               <X size={10} />
                             </button>
                           </span>
@@ -228,7 +229,7 @@ export default function CheckoutPage() {
 
                     {/* Notes toggle + input */}
                     <div className="mt-2">
-                      <button onClick={() => toggleNotes(item.id)} className="flex items-center gap-1 text-[10px] text-[#8B7D6B] hover:text-[#C8572D] transition-colors uppercase tracking-wider font-['Oswald',sans-serif]" data-testid={`toggle-notes-${item.id}`}>
+                      <button onClick={() => toggleNotes(item.instanceId)} className="flex items-center gap-1 text-[10px] text-[#8B7D6B] hover:text-[#C8572D] transition-colors uppercase tracking-wider font-['Oswald',sans-serif]" data-testid={`toggle-notes-${item.instanceId}`}>
                         <MessageSquare size={10} />
                         {noteLabel.addNote}
                         {item.notes && <span className="w-1.5 h-1.5 rounded-full bg-[#C8572D] ml-1" />}
@@ -236,11 +237,11 @@ export default function CheckoutPage() {
                       {isNotesOpen && (
                         <textarea
                           value={item.notes}
-                          onChange={e => updateNotes(item.id, e.target.value)}
+                          onChange={e => updateNotes(item.instanceId, e.target.value)}
                           placeholder={noteLabel.notePlaceholder}
                           rows={2}
                           className="w-full mt-1.5 bg-[#252019] border border-[#332C22] focus:border-[#C8572D] rounded-sm px-2 py-1.5 text-xs text-[#E8DDD0] placeholder:text-[#5C5347] focus:ring-0 focus:outline-none transition-colors resize-none font-['Source_Sans_3',sans-serif]"
-                          data-testid={`item-notes-${item.id}`}
+                          data-testid={`item-notes-${item.instanceId}`}
                         />
                       )}
                     </div>

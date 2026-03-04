@@ -6,7 +6,7 @@ import json
 from datetime import datetime
 
 class ELBERestaurantAPITester:
-    def __init__(self, base_url="https://dine-digital-33.preview.emergentagent.com/api"):
+    def __init__(self, base_url="https://dining-elbe.preview.emergentagent.com/api"):
         self.base_url = base_url
         self.tests_run = 0
         self.tests_passed = 0
@@ -158,7 +158,7 @@ class ELBERestaurantAPITester:
             
         checkout_data = {
             "order_id": order_id,
-            "origin_url": "https://dine-digital-33.preview.emergentagent.com"
+            "origin_url": "https://dining-elbe.preview.emergentagent.com"
         }
         
         success, response = self.run_test(
