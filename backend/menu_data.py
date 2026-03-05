@@ -16,9 +16,10 @@ CATEGORY_IMAGES = {
     "beer": "https://images.pexels.com/photos/5537951/pexels-photo-5537951.jpeg?auto=compress&cs=tinysrgb&w=400",
     "cocktail": "https://images.pexels.com/photos/10325196/pexels-photo-10325196.jpeg?auto=compress&cs=tinysrgb&w=400",
     "wine": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "short_drink": "https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=400",
 }
 
-# Per-item image overrides for variety
+# Per-item image overrides
 ITEM_IMAGES = {
     "burger-1": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
     "burger-2": "https://images.pexels.com/photos/11213791/pexels-photo-11213791.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -80,6 +81,14 @@ ITEM_IMAGES = {
     "soft-4": "https://images.unsplash.com/photo-1597447908838-77e5259f94db?w=400&q=80",
     "soft-5": "https://images.unsplash.com/photo-1655604646080-cf6ca1bdc10a?w=400&q=80",
     "soft-6": "https://images.unsplash.com/photo-1655604646080-cf6ca1bdc10a?w=400&q=80",
+    "soft-7": "https://images.unsplash.com/photo-1597447908838-77e5259f94db?w=400&q=80",
+    "soft-8": "https://images.unsplash.com/photo-1655604646080-cf6ca1bdc10a?w=400&q=80",
+    "soft-9": "https://images.unsplash.com/photo-1655604646080-cf6ca1bdc10a?w=400&q=80",
+    "soft-10": "https://images.unsplash.com/photo-1597447908838-77e5259f94db?w=400&q=80",
+    "soft-11": "https://images.unsplash.com/photo-1655604646080-cf6ca1bdc10a?w=400&q=80",
+    "soft-12": "https://images.unsplash.com/photo-1655604646080-cf6ca1bdc10a?w=400&q=80",
+    "soft-13": "https://images.unsplash.com/photo-1597447908838-77e5259f94db?w=400&q=80",
+    "soft-14": "https://images.unsplash.com/photo-1655604646080-cf6ca1bdc10a?w=400&q=80",
     "virgin-1": "https://images.pexels.com/photos/2093089/pexels-photo-2093089.jpeg?auto=compress&cs=tinysrgb&w=400",
     "virgin-2": "https://images.pexels.com/photos/12419177/pexels-photo-12419177.jpeg?auto=compress&cs=tinysrgb&w=400",
     "virgin-3": "https://images.pexels.com/photos/2093089/pexels-photo-2093089.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -89,15 +98,33 @@ ITEM_IMAGES = {
     "beer-2": "https://images.pexels.com/photos/46527/pexels-photo-46527.jpeg?auto=compress&cs=tinysrgb&w=400",
     "beer-3": "https://images.pexels.com/photos/5537951/pexels-photo-5537951.jpeg?auto=compress&cs=tinysrgb&w=400",
     "beer-4": "https://images.pexels.com/photos/46527/pexels-photo-46527.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "beer-5": "https://images.pexels.com/photos/5537951/pexels-photo-5537951.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "beer-6": "https://images.pexels.com/photos/46527/pexels-photo-46527.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "beer-7": "https://images.pexels.com/photos/5537951/pexels-photo-5537951.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "beer-8": "https://images.pexels.com/photos/46527/pexels-photo-46527.jpeg?auto=compress&cs=tinysrgb&w=400",
     "cocktail-1": "https://images.pexels.com/photos/10325196/pexels-photo-10325196.jpeg?auto=compress&cs=tinysrgb&w=400",
     "cocktail-2": "https://images.unsplash.com/photo-1681579289862-42080bf4509a?w=400&q=80",
     "cocktail-3": "https://images.pexels.com/photos/10325196/pexels-photo-10325196.jpeg?auto=compress&cs=tinysrgb&w=400",
     "cocktail-4": "https://images.unsplash.com/photo-1681579289862-42080bf4509a?w=400&q=80",
     "cocktail-5": "https://images.pexels.com/photos/10325196/pexels-photo-10325196.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "cocktail-6": "https://images.unsplash.com/photo-1681579289862-42080bf4509a?w=400&q=80",
+    "cocktail-7": "https://images.pexels.com/photos/10325196/pexels-photo-10325196.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "cocktail-8": "https://images.unsplash.com/photo-1681579289862-42080bf4509a?w=400&q=80",
+    "cocktail-9": "https://images.pexels.com/photos/10325196/pexels-photo-10325196.jpeg?auto=compress&cs=tinysrgb&w=400",
     "wine-1": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
     "wine-2": "https://images.unsplash.com/photo-1695634580213-c384a6201eee?w=400&q=80",
     "wine-3": "https://images.unsplash.com/photo-1695634580213-c384a6201eee?w=400&q=80",
     "wine-4": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "wine-5": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "wine-6": "https://images.unsplash.com/photo-1695634580213-c384a6201eee?w=400&q=80",
+    "wine-7": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "wine-8": "https://images.unsplash.com/photo-1695634580213-c384a6201eee?w=400&q=80",
+    "wine-9": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "wine-10": "https://images.unsplash.com/photo-1695634580213-c384a6201eee?w=400&q=80",
+    "wine-11": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "wine-12": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "wine-13": "https://images.pexels.com/photos/3620231/pexels-photo-3620231.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "short-1": "https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=400",
     # Extras
     "extra-burger-meat": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
     "extra-cheddar": "https://images.pexels.com/photos/22119675/pexels-photo-22119675.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -120,18 +147,19 @@ ITEM_IMAGES = {
     "sauce-ketchup": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
     "sauce-sweet-chilli": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
     "sauce-mushroom": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "sauce-tomato": "https://images.pexels.com/photos/1872903/pexels-photo-1872903.jpeg?auto=compress&cs=tinysrgb&w=400",
 }
 
-# EXTRAS - sauces, extra ingredients, and recommended drinks
+# EXTRAS
 EXTRAS = [
-    # Burger extras - individual toppings
+    # Burger extras
     {"id": "extra-burger-meat", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Carne de Vită Black Angus (Burger Dublu)", "name_en": "Extra Black Angus Beef (Double Burger)", "name_hu": "Extra Black Angus Marhahús (Dupla Burger)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "130g", "price": 15.0},
     {"id": "extra-cheddar", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Cheddar", "name_en": "Extra Cheddar", "name_hu": "Extra Cheddar", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
     {"id": "extra-blue-cheese", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Blue Cheese", "name_en": "Extra Blue Cheese", "name_hu": "Extra Rokfort Sajt", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
     {"id": "extra-camembert", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Camembert", "name_en": "Extra Camembert", "name_hu": "Extra Camembert", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
     {"id": "extra-pancetta", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Pancetta", "name_en": "Extra Pancetta", "name_hu": "Extra Pancetta", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
     {"id": "extra-caramelized-onion", "category": "extra", "extra_type": "ingredient", "applies_to": ["burger"], "name_ro": "Extra Ceapă Caramelizată", "name_en": "Extra Caramelized Onion", "name_hu": "Extra Karamellizált Hagyma", "description_ro": "", "description_en": "", "description_hu": "", "weight": "20g", "price": 5.0},
-    # Pizza extras - individual toppings
+    # Pizza extras
     {"id": "extra-mozzarella", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Mozzarella", "name_en": "Extra Mozzarella", "name_hu": "Extra Mozzarella", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
     {"id": "extra-salam", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Salam", "name_en": "Extra Salami", "name_hu": "Extra Szalámi", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
     {"id": "extra-sunca", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Șuncă", "name_en": "Extra Ham", "name_hu": "Extra Sonka", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50g", "price": 6.0},
@@ -140,9 +168,10 @@ EXTRAS = [
     {"id": "extra-porumb", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Porumb", "name_en": "Extra Corn", "name_hu": "Extra Kukorica", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
     {"id": "extra-ceapa", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Ceapă", "name_en": "Extra Onion", "name_hu": "Extra Hagyma", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
     {"id": "extra-jalapeno", "category": "extra", "extra_type": "ingredient", "applies_to": ["pizza"], "name_ro": "Extra Jalapeno", "name_en": "Extra Jalapeno", "name_hu": "Extra Jalapeno", "description_ro": "", "description_en": "", "description_hu": "", "weight": "40g", "price": 4.0},
-    # Sauces (for burgers, pizza, mains, snacks)
+    # Sauces
     {"id": "sauce-garlic", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack", "appetizer"], "name_ro": "Sos de Usturoi", "name_en": "Garlic Sauce", "name_hu": "Fokhagymaszósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
     {"id": "sauce-classic", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack", "appetizer"], "name_ro": "Sos Classic", "name_en": "Classic Sauce", "name_hu": "Klasszikus Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
+    {"id": "sauce-tomato", "category": "extra", "extra_type": "sauce", "applies_to": ["pizza", "main", "snack"], "name_ro": "Sos de Roșii", "name_en": "Tomato Sauce", "name_hu": "Paradicsomszósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
     {"id": "sauce-cheddar", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "main", "snack"], "name_ro": "Sos Cheddar", "name_en": "Cheddar Sauce", "name_hu": "Cheddar Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
     {"id": "sauce-bbq", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "main", "snack"], "name_ro": "Sos BBQ", "name_en": "BBQ Sauce", "name_hu": "BBQ Szósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
     {"id": "sauce-ketchup", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main", "snack"], "name_ro": "Ketchup", "name_en": "Ketchup", "name_hu": "Ketchup", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 5.0},
@@ -150,7 +179,7 @@ EXTRAS = [
     {"id": "sauce-mushroom", "category": "extra", "extra_type": "sauce", "applies_to": ["burger", "pizza", "main"], "name_ro": "Sos de Ciuperci", "name_en": "Mushroom Sauce", "name_hu": "Gombaszósz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 8.0},
 ]
 
-# Drink recommendations for food categories
+# Drink recommendations
 DRINK_RECOMMENDATIONS = {
     "burger": ["soft-1", "soft-2", "beer-1", "beer-2", "lemonade-1"],
     "pizza": ["soft-1", "soft-3", "beer-1", "beer-3", "lemonade-2"],
@@ -163,7 +192,7 @@ DRINK_RECOMMENDATIONS = {
 }
 
 MENU_ITEMS = [
-    # BURGER
+    # ── BURGER ──────────────────────────────────────────────────────────────
     {"id": "burger-1", "category": "burger", "name_ro": "Burger de Vită", "name_en": "Beef Burger", "name_hu": "Marhahús Burger", "description_ro": "Chiflă, carne de vită Black Angus, pancetta, cheddar, salată, roșii, castraveți murați, ceapă roșie, cartofi pai, sos classic", "description_en": "Bun, Black Angus beef, pancetta, cheddar, lettuce, tomatoes, pickles, red onion, fries, classic sauce", "description_hu": "Zsemle, Black Angus marhahús, pancetta, cheddar, saláta, paradicsom, savanyú uborka, vöröshagyma, sült krumpli, klasszikus szósz", "weight": "130g/420g", "price": 43.0},
     {"id": "burger-2", "category": "burger", "name_ro": "Burger cu Piept de Pui", "name_en": "Chicken Breast Burger", "name_hu": "Csirkemell Burger", "description_ro": "Chiflă, piept de pui, pancetta, cheddar, salată, roșii, castraveți murați, ceapă roșie, cartofi pai, sos classic", "description_en": "Bun, chicken breast, pancetta, cheddar, lettuce, tomatoes, pickles, red onion, fries, classic sauce", "description_hu": "Zsemle, csirkemell, pancetta, cheddar, saláta, paradicsom, savanyú uborka, vöröshagyma, sült krumpli, klasszikus szósz", "weight": "130g/420g", "price": 40.0},
     {"id": "burger-3", "category": "burger", "name_ro": "Burger de Vită Blue Cheese", "name_en": "Blue Cheese Beef Burger", "name_hu": "Blue Cheese Marhahús Burger", "description_ro": "Chiflă, carne de vită Black Angus, jambon Pădurea Neagră, brânză cu mucegai, rucola, ceapă roșie, cartofi pai, sos classic", "description_en": "Bun, Black Angus beef, Black Forest ham, blue cheese, arugula, red onion, fries, classic sauce", "description_hu": "Zsemle, Black Angus marhahús, Fekete-erdei sonka, rokfort sajt, rukkola, vöröshagyma, sült krumpli, klasszikus szósz", "weight": "130g/420g", "price": 45.0},
@@ -174,7 +203,8 @@ MENU_ITEMS = [
     {"id": "burger-8", "category": "burger", "name_ro": "Brisket Burger", "name_en": "Brisket Burger", "name_hu": "Brisket Burger", "description_ro": "Chiflă, piept de vită Black Angus, cheddar, rucola, coleslaw, castraveți murați, cartofi pai, sos classic", "description_en": "Bun, Black Angus beef brisket, cheddar, arugula, coleslaw, pickles, fries, classic sauce", "description_hu": "Zsemle, Black Angus marhaszegy, cheddar, rukkola, coleslaw, savanyú uborka, sült krumpli, klasszikus szósz", "weight": "130g/420g", "price": 45.0},
     {"id": "burger-9", "category": "burger", "name_ro": "Veggie Burger", "name_en": "Veggie Burger", "name_hu": "Veggie Burger", "description_ro": "Chiflă, chiftea veggie, sos classic, cașcaval vegetal, salată, roșii, castraveți murați, cartofi pai", "description_en": "Bun, veggie patty, classic sauce, plant-based cheese, lettuce, tomatoes, pickles, fries", "description_hu": "Zsemle, vegán fasírt, klasszikus szósz, növényi sajt, saláta, paradicsom, savanyú uborka, sült krumpli", "weight": "120g/420g", "price": 45.0},
     {"id": "burger-10", "category": "burger", "name_ro": "Barbie Burger", "name_en": "Barbie Burger", "name_hu": "Barbie Burger", "description_ro": "Chiflă, piept de vită Black Angus, foie gras, rucola, roșii, cartofi pai, sos classic", "description_en": "Bun, Black Angus beef, foie gras, arugula, tomatoes, fries, classic sauce", "description_hu": "Zsemle, Black Angus marhahús, libamáj, rukkola, paradicsom, sült krumpli, klasszikus szósz", "weight": "150g/420g", "price": 60.0},
-    # PIZZA
+
+    # ── PIZZA ────────────────────────────────────────────────────────────────
     {"id": "pizza-1", "category": "pizza", "name_ro": "Pizza EL&BE", "name_en": "EL&BE Pizza", "name_hu": "EL&BE Pizza", "description_ro": "Aluat de casă, sos de roșii, mozzarella, piept de pui, porumb, brânză cu mucegai, rucola", "description_en": "Homemade dough, tomato sauce, mozzarella, chicken breast, corn, blue cheese, arugula", "description_hu": "Házi tészta, paradicsomszósz, mozzarella, csirkemell, kukorica, rokfort sajt, rukkola", "weight": "550g", "price": 35.0},
     {"id": "pizza-2", "category": "pizza", "name_ro": "Margherita", "name_en": "Margherita", "name_hu": "Margherita", "description_ro": "Aluat de casă, sos de roșii, burrata, sos busuioc", "description_en": "Homemade dough, tomato sauce, burrata, basil sauce", "description_hu": "Házi tészta, paradicsomszósz, burrata, bazsalikomszósz", "weight": "450g", "price": 32.0},
     {"id": "pizza-3", "category": "pizza", "name_ro": "Salami", "name_en": "Salami", "name_hu": "Szalámi", "description_ro": "Aluat de casă, sos de roșii, mozzarella, salam", "description_en": "Homemade dough, tomato sauce, mozzarella, salami", "description_hu": "Házi tészta, paradicsomszósz, mozzarella, szalámi", "weight": "450g", "price": 32.0},
@@ -187,26 +217,31 @@ MENU_ITEMS = [
     {"id": "pizza-10", "category": "pizza", "name_ro": "Quattro Carni", "name_en": "Quattro Carni", "name_hu": "Quattro Carni", "description_ro": "Aluat de casă, sos de roșii, mozzarella, piept de pui, brisket de vită, șuncă, salam", "description_en": "Homemade dough, tomato sauce, mozzarella, chicken breast, beef brisket, ham, salami", "description_hu": "Házi tészta, paradicsomszósz, mozzarella, csirkemell, marhaszegy, sonka, szalámi", "weight": "550g", "price": 37.0},
     {"id": "pizza-11", "category": "pizza", "name_ro": "Brisket Calzone", "name_en": "Brisket Calzone", "name_hu": "Brisket Calzone", "description_ro": "Aluat de casă, sos de roșii, mozzarella, brisket de vită, blue cheese, salată mixtă, house dressing", "description_en": "Homemade dough, tomato sauce, mozzarella, beef brisket, blue cheese, mixed salad, house dressing", "description_hu": "Házi tészta, paradicsomszósz, mozzarella, marhaszegy, rokfort sajt, vegyes saláta, house dressing", "weight": "550g", "price": 37.0},
     {"id": "pizza-12", "category": "pizza", "name_ro": "Puttanesca", "name_en": "Puttanesca", "name_hu": "Puttanesca", "description_ro": "Aluat de casă, sos de roșii, mozzarella, roșii cherry, anșoa, busuioc proaspăt", "description_en": "Homemade dough, tomato sauce, mozzarella, cherry tomatoes, anchovies, fresh basil", "description_hu": "Házi tészta, paradicsomszósz, mozzarella, koktélparadicsom, szardella, friss bazsalikom", "weight": "550g", "price": 37.0},
-    {"id": "pizza-13", "category": "pizza", "name_ro": "Vegetarian", "name_en": "Vegetarian", "name_hu": "Vegetáriánus", "description_ro": "Aluat de casă, sos de roșii, mozzarella, broccoli, ciuperci, ardei, ceapă, porumb, roșii cherry", "description_en": "Homemade dough, tomato sauce, mozzarella, broccoli, mushrooms, peppers, onion, corn, cherry tomatoes", "description_hu": "Házi tészta, paradicsomszósz, mozzarella, brokkoli, gomba, paprika, hagyma, kukorica, koktélparadicsom", "weight": "550g", "price": 30.0},
-    {"id": "pizza-14", "category": "pizza", "name_ro": "Focaccia", "name_en": "Focaccia", "name_hu": "Focaccia", "description_ro": "Aluat, ulei de măsline, parmesan", "description_en": "Dough, olive oil, parmesan", "description_hu": "Tészta, olívaolaj, parmezán", "weight": "260g", "price": 18.0},
-    # ANTREU - SUPĂ
+    {"id": "pizza-13", "category": "pizza", "name_ro": "Vegetarian", "name_en": "Vegetarian", "name_hu": "Vegetáriánus", "description_ro": "Aluat de casă, sos de roșii, mozzarella sau cașcaval vegetal, broccoli, ciuperci, ardei, ceapă, porumb, roșii cherry", "description_en": "Homemade dough, tomato sauce, mozzarella or plant-based cheese, broccoli, mushrooms, peppers, onion, corn, cherry tomatoes", "description_hu": "Házi tészta, paradicsomszósz, mozzarella vagy növényi sajt, brokkoli, gomba, paprika, hagyma, kukorica, koktélparadicsom", "weight": "550g", "price": 30.0},
+    {"id": "pizza-14", "category": "pizza", "name_ro": "Panuozzo Sandwich", "name_en": "Panuozzo Sandwich", "name_hu": "Panuozzo Szendvics", "description_ro": "Aluat de casă, ulei de măsline, rucola, burrata, jambon Pădurea Neagră, roșii cherry", "description_en": "Homemade dough, olive oil, arugula, burrata, Black Forest ham, cherry tomatoes", "description_hu": "Házi tészta, olívaolaj, rukkola, burrata, Fekete-erdei sonka, koktélparadicsom", "weight": "550g", "price": 37.0},
+    {"id": "pizza-15", "category": "pizza", "name_ro": "Focaccia", "name_en": "Focaccia", "name_hu": "Focaccia", "description_ro": "Aluat, ulei de măsline, parmesan", "description_en": "Dough, olive oil, parmesan", "description_hu": "Tészta, olívaolaj, parmezán", "weight": "260g", "price": 18.0},
+
+    # ── ANTREU & SUPĂ ────────────────────────────────────────────────────────
     {"id": "appetizer-1", "category": "appetizer", "name_ro": "Supă / Ciorbă Zilei", "name_en": "Soup of the Day", "name_hu": "Napi Leves", "description_ro": "Supă proaspătă preparată zilnic", "description_en": "Freshly prepared daily soup", "description_hu": "Naponta frissen készített leves", "weight": "450ml", "price": 20.0},
     {"id": "appetizer-2", "category": "appetizer", "name_ro": "Măduvă de Vită Coaptă în Os", "name_en": "Roasted Bone Marrow", "name_hu": "Sült Velős Csont", "description_ro": "Baghetă, salată de microplante, capere, roșii cherry, ceapă roșie", "description_en": "Baguette, microgreens salad, capers, cherry tomatoes, red onion", "description_hu": "Bagett, mikrozöld saláta, kapribogyó, koktélparadicsom, vöröshagyma", "weight": "600g/80g", "price": 50.0},
     {"id": "appetizer-3", "category": "appetizer", "name_ro": "Camembert pe Grill", "name_en": "Grilled Camembert", "name_hu": "Grillezett Camembert", "description_ro": "Sos de fructe de pădure, șuncă Parma, baghetă", "description_en": "Forest fruit sauce, Parma ham, baguette", "description_hu": "Erdei gyümölcsszósz, pármai sonka, bagett", "weight": "120g/175g", "price": 40.0},
     {"id": "appetizer-4", "category": "appetizer", "name_ro": "Focaccia cu Jambon Pădurea Neagră", "name_en": "Focaccia with Black Forest Ham", "name_hu": "Focaccia Fekete-erdei Sonkával", "description_ro": "Roșii cherry, rucola, parmesan, ulei de măsline, maioneză cu trufe/ciuperci", "description_en": "Cherry tomatoes, arugula, parmesan, olive oil, truffle/mushroom mayonnaise", "description_hu": "Koktélparadicsom, rukkola, parmezán, olívaolaj, szarvasgomba/gomba majonéz", "weight": "25g/200g", "price": 30.0},
     {"id": "appetizer-5", "category": "appetizer", "name_ro": "Creveți Pane cu Sos Sweet Chilli", "name_en": "Breaded Shrimp with Sweet Chilli", "name_hu": "Rántott Garnéla Sweet Chilli Szósszal", "description_ro": "Creveți pane cu sos sweet chilli", "description_en": "Breaded shrimp with sweet chilli sauce", "description_hu": "Rántott garnéla sweet chilli szósszal", "weight": "150g", "price": 28.0},
     {"id": "appetizer-6", "category": "appetizer", "name_ro": "\"Calamari\" Sălăjean", "name_en": "\"Calamari\" Sălăjean", "name_hu": "\"Calamari\" Sălăjean", "description_ro": "Calamari în stil local", "description_en": "Local style calamari", "description_hu": "Helyi stílusú calamari", "weight": "150g", "price": 25.0},
-    # SALATE
+
+    # ── SALATE ───────────────────────────────────────────────────────────────
     {"id": "salad-1", "category": "salad", "name_ro": "Salată cu Piept de Pui", "name_en": "Chicken Breast Salad", "name_hu": "Csirkemell Saláta", "description_ro": "Piept de pui, salată mixtă, pancetta, roșii cherry, porumb, ardei, parmesan, baghetă, house dressing", "description_en": "Chicken breast, mixed salad, pancetta, cherry tomatoes, corn, peppers, parmesan, baguette, house dressing", "description_hu": "Csirkemell, vegyes saláta, pancetta, koktélparadicsom, kukorica, paprika, parmezán, bagett, house dressing", "weight": "130g/270g", "price": 35.0},
     {"id": "salad-2", "category": "salad", "name_ro": "Salată Brisket", "name_en": "Brisket Salad", "name_hu": "Brisket Saláta", "description_ro": "Piept de vită, salată rucola, roșii cherry, ceapă roșie, ardei, ou fiert, parmesan, baghetă, house dressing", "description_en": "Beef brisket, arugula salad, cherry tomatoes, red onion, peppers, boiled egg, parmesan, baguette, house dressing", "description_hu": "Marhaszegy, rukkola saláta, koktélparadicsom, vöröshagyma, paprika, főtt tojás, parmezán, bagett, house dressing", "weight": "100g/270g", "price": 38.0},
     {"id": "salad-3", "category": "salad", "name_ro": "Salată Caesar cu Piept de Pui", "name_en": "Caesar Salad with Chicken", "name_hu": "Caesar Saláta Csirkemellel", "description_ro": "Salată, parmezan, crutoane, anșoa, sos caesar", "description_en": "Lettuce, parmesan, croutons, anchovies, caesar dressing", "description_hu": "Saláta, parmezán, kruton, szardella, caesar szósz", "weight": "110g/270g", "price": 40.0},
     {"id": "salad-4", "category": "salad", "name_ro": "Salată Burrata & Jambon Pădurea Neagră", "name_en": "Burrata & Black Forest Ham Salad", "name_hu": "Burrata & Fekete-erdei Sonka Saláta", "description_ro": "Salată, rucola, roșii cherry, cremă de oțet balsamic, baghetă", "description_en": "Lettuce, arugula, cherry tomatoes, balsamic vinegar cream, baguette", "description_hu": "Saláta, rukkola, koktélparadicsom, balzsamecet krém, bagett", "weight": "125g/270g", "price": 30.0},
-    # PASTE
+
+    # ── PASTE & RISOTTO ──────────────────────────────────────────────────────
     {"id": "pasta-1", "category": "pasta", "name_ro": "Paste cu Creveți", "name_en": "Shrimp Pasta", "name_hu": "Garnélás Tészta", "description_ro": "Roșii cherry, unt, usturoi, ciuperci de pădure, parmesan, pătrunjel", "description_en": "Cherry tomatoes, butter, garlic, wild mushrooms, parmesan, parsley", "description_hu": "Koktélparadicsom, vaj, fokhagyma, erdei gomba, parmezán, petrezselyem", "weight": "80g/400g", "price": 45.0},
     {"id": "pasta-2", "category": "pasta", "name_ro": "Paste Gratinate", "name_en": "Gratinated Pasta", "name_hu": "Gratinált Tészta", "description_ro": "Piept de pui, smântână dulce, parmesan, mozzarella", "description_en": "Chicken breast, sweet cream, parmesan, mozzarella", "description_hu": "Csirkemell, édes tejszín, parmezán, mozzarella", "weight": "80g/400g", "price": 39.0},
     {"id": "pasta-3", "category": "pasta", "name_ro": "Risotto cu Hribi de Pădure", "name_en": "Wild Mushroom Risotto", "name_hu": "Erdei Gombás Risotto", "description_ro": "Unt, parmesan, pătrunjel", "description_en": "Butter, parmesan, parsley", "description_hu": "Vaj, parmezán, petrezselyem", "weight": "80g/400g", "price": 38.0},
     {"id": "pasta-4", "category": "pasta", "name_ro": "Risotto cu Creveți și Roșii Cherry", "name_en": "Shrimp & Cherry Tomato Risotto", "name_hu": "Garnélás & Koktélparadicsmos Risotto", "description_ro": "Unt, parmesan, pătrunjel", "description_en": "Butter, parmesan, parsley", "description_hu": "Vaj, parmezán, petrezselyem", "weight": "80g/400g", "price": 45.0},
-    # FEL PRINCIPAL
+
+    # ── FEL PRINCIPAL ────────────────────────────────────────────────────────
     {"id": "main-1", "category": "main", "name_ro": "Mac & Cheese cu Piept de Pui", "name_en": "Mac & Cheese with Chicken", "name_hu": "Mac & Cheese Csirkemellel", "description_ro": "Paste, sos cheddar, pancetta crocant", "description_en": "Pasta, cheddar sauce, crispy pancetta", "description_hu": "Tészta, cheddar szósz, ropogós pancetta", "weight": "220g/250g", "price": 50.0},
     {"id": "main-2", "category": "main", "name_ro": "Steak din Piept de Pui", "name_en": "Chicken Breast Steak", "name_hu": "Csirkemell Steak", "description_ro": "Cartofi colorați, broccoli, ceapă Lyon, sos brun", "description_en": "Colorful potatoes, broccoli, Lyon onion, brown sauce", "description_hu": "Színes krumpli, brokkoli, lyoni hagyma, barna szósz", "weight": "220g/250g", "price": 55.0},
     {"id": "main-3", "category": "main", "name_ro": "Scărița de Porc cu Sos BBQ", "name_en": "BBQ Pork Ribs", "name_hu": "BBQ Sertésoldal", "description_ro": "Cartofi wedges, salată coleslaw", "description_en": "Potato wedges, coleslaw salad", "description_hu": "Sült krumpli, coleslaw saláta", "weight": "350g/250g", "price": 71.0},
@@ -216,17 +251,20 @@ MENU_ITEMS = [
     {"id": "main-7", "category": "main", "name_ro": "Vegetarian/Vegan", "name_en": "Vegetarian/Vegan", "name_hu": "Vegetáriánus/Vegán", "description_ro": "Chips din cartofi dulci, broccoli, camembert/chiftea vegan", "description_en": "Sweet potato chips, broccoli, camembert/vegan patty", "description_hu": "Édesburgonya chips, brokkoli, camembert/vegán fasírt", "weight": "125g/250g", "price": 52.0},
     {"id": "main-8", "category": "main", "name_ro": "T-Bone Steak (Maturat 30 de zile)", "name_en": "T-Bone Steak (30 Days Aged)", "name_hu": "T-Bone Steak (30 Napos Érlelésű)", "description_ro": "Cartofi wedges, salată rucola - pentru 2 persoane", "description_en": "Potato wedges, arugula salad - for 2 persons", "description_hu": "Sült krumpli, rukkola saláta - 2 személyre", "weight": "600-800g/250g", "price": 180.0},
     {"id": "main-9", "category": "main", "name_ro": "Caracatiță pe Grill", "name_en": "Grilled Octopus", "name_hu": "Grillezett Polip", "description_ro": "Cartofi colorați, sos caesar, usturoi, pătrunjel, unt", "description_en": "Colorful potatoes, caesar sauce, garlic, parsley, butter", "description_hu": "Színes krumpli, caesar szósz, fokhagyma, petrezselyem, vaj", "weight": "200g/250g", "price": 60.0},
-    # SNACKS
+
+    # ── SNACKS ───────────────────────────────────────────────────────────────
     {"id": "snack-1", "category": "snack", "name_ro": "Cartofi Pai", "name_en": "French Fries", "name_hu": "Sült Krumpli", "description_ro": "Cartofi pai clasici", "description_en": "Classic french fries", "description_hu": "Klasszikus sült krumpli", "weight": "200g", "price": 10.0},
     {"id": "snack-2", "category": "snack", "name_ro": "Cartofi Dulci", "name_en": "Sweet Potato Fries", "name_hu": "Édesburgonya Sült Krumpli", "description_ro": "Cartofi dulci prăjiți", "description_en": "Fried sweet potato fries", "description_hu": "Sült édesburgonya", "weight": "200g", "price": 15.0},
     {"id": "snack-3", "category": "snack", "name_ro": "Aripioare de Pui cu Sos de Usturoi și Cartofi Pai", "name_en": "Chicken Wings with Garlic Sauce & Fries", "name_hu": "Csirkeszárny Fokhagymaszósszal és Sült Krumplival", "description_ro": "Aripioare de pui cu sos de usturoi și cartofi pai", "description_en": "Chicken wings with garlic sauce and french fries", "description_hu": "Csirkeszárny fokhagymaszósszal és sült krumplival", "weight": "230g/200g", "price": 42.0},
     {"id": "snack-4", "category": "snack", "name_ro": "Crispy Strips cu Sos de Usturoi și Cartofi Pai", "name_en": "Crispy Strips with Garlic Sauce & Fries", "name_hu": "Crispy Strips Fokhagymaszósszal és Sült Krumplival", "description_ro": "Crispy strips cu sos de usturoi și cartofi pai", "description_en": "Crispy strips with garlic sauce and french fries", "description_hu": "Crispy strips fokhagymaszósszal és sült krumplival", "weight": "230g/200g", "price": 45.0},
-    # DESERT
+
+    # ── DESERT ───────────────────────────────────────────────────────────────
     {"id": "dessert-1", "category": "dessert", "name_ro": "Cheesecake cu Gem de Afine", "name_en": "Blueberry Jam Cheesecake", "name_hu": "Áfonyalekváros Cheesecake", "description_ro": "Cheesecake cu gem de afine", "description_en": "Cheesecake with blueberry jam", "description_hu": "Cheesecake áfonyalekvárral", "weight": "150g", "price": 18.0},
     {"id": "dessert-2", "category": "dessert", "name_ro": "Lava Cake cu Înghețată de Vanilie", "name_en": "Lava Cake with Vanilla Ice Cream", "name_hu": "Lava Cake Vanília Fagylalttal", "description_ro": "Lava cake cu înghețată de vanilie", "description_en": "Lava cake with vanilla ice cream", "description_hu": "Lava cake vanília fagylalttal", "weight": "200g", "price": 20.0},
     {"id": "dessert-3", "category": "dessert", "name_ro": "Desertul Zilei", "name_en": "Dessert of the Day", "name_hu": "Napi Desszert", "description_ro": "Desertul zilei", "description_en": "Dessert of the day", "description_hu": "A nap desszertje", "weight": "200g", "price": 17.0},
     {"id": "dessert-4", "category": "dessert", "name_ro": "Înghețată Artizanală", "name_en": "Artisan Ice Cream", "name_hu": "Kézműves Fagylalt", "description_ro": "Înghețată artizanală (1 bilă)", "description_en": "Artisan ice cream (1 scoop)", "description_hu": "Kézműves fagylalt (1 gombóc)", "weight": "50g", "price": 8.0},
-    # CAFELE - CEAIURI
+
+    # ── CAFELE & CEAIURI ─────────────────────────────────────────────────────
     {"id": "coffee-1", "category": "coffee", "name_ro": "Espresso / Espresso Lung", "name_en": "Espresso / Long Espresso", "name_hu": "Espresso / Hosszú Espresso", "description_ro": "", "description_en": "", "description_hu": "", "weight": "30ml", "price": 8.0},
     {"id": "coffee-2", "category": "coffee", "name_ro": "Latte Simplă", "name_en": "Simple Latte", "name_hu": "Sima Latte", "description_ro": "", "description_en": "", "description_hu": "", "weight": "200ml", "price": 13.0},
     {"id": "coffee-3", "category": "coffee", "name_ro": "Latte cu Cocos", "name_en": "Coconut Latte", "name_hu": "Kókuszos Latte", "description_ro": "", "description_en": "", "description_hu": "", "weight": "200ml", "price": 15.0},
@@ -235,62 +273,110 @@ MENU_ITEMS = [
     {"id": "coffee-6", "category": "coffee", "name_ro": "Ciocolată Caldă Albă/Neagră", "name_en": "White/Dark Hot Chocolate", "name_hu": "Fehér/Étcsokoládé Forró", "description_ro": "", "description_en": "", "description_hu": "", "weight": "200ml", "price": 15.0},
     {"id": "coffee-7", "category": "coffee", "name_ro": "Ceai", "name_en": "Tea", "name_hu": "Tea", "description_ro": "", "description_en": "", "description_hu": "", "weight": "250ml", "price": 7.0},
     {"id": "coffee-8", "category": "coffee", "name_ro": "Iced Coffee", "name_en": "Iced Coffee", "name_hu": "Jeges Kávé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "200ml", "price": 16.0},
-    # FRESH-URI
+
+    # ── FRESH-URI ────────────────────────────────────────────────────────────
     {"id": "fresh-1", "category": "fresh", "name_ro": "Fresh Portocale", "name_en": "Fresh Orange Juice", "name_hu": "Friss Narancslé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "300ml", "price": 16.0},
     {"id": "fresh-2", "category": "fresh", "name_ro": "Fresh Grapefruit", "name_en": "Fresh Grapefruit Juice", "name_hu": "Friss Grapefruitlé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "300ml", "price": 16.0},
     {"id": "fresh-3", "category": "fresh", "name_ro": "Fresh Mixt", "name_en": "Mixed Fresh Juice", "name_hu": "Vegyes Friss Gyümölcslé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "350ml", "price": 18.0},
-    # LIMONADE
+
+    # ── LIMONADE ─────────────────────────────────────────────────────────────
     {"id": "lemonade-1", "category": "lemonade", "name_ro": "Limonadă Yuzu Simplă", "name_en": "Simple Yuzu Lemonade", "name_hu": "Egyszerű Yuzu Limonádé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "450ml", "price": 20.0},
     {"id": "lemonade-2", "category": "lemonade", "name_ro": "Limonadă Mango cu Pepene Galben", "name_en": "Mango & Cantaloupe Lemonade", "name_hu": "Mangó & Sárgadinnye Limonádé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "450ml", "price": 20.0},
     {"id": "lemonade-3", "category": "lemonade", "name_ro": "Limonadă Kiwi cu Pepene Galben", "name_en": "Kiwi & Cantaloupe Lemonade", "name_hu": "Kiwi & Sárgadinnye Limonádé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "450ml", "price": 20.0},
     {"id": "lemonade-4", "category": "lemonade", "name_ro": "Limonadă Zmeură cu Hibiscus", "name_en": "Raspberry & Hibiscus Lemonade", "name_hu": "Málna & Hibiszkusz Limonádé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "450ml", "price": 20.0},
     {"id": "lemonade-5", "category": "lemonade", "name_ro": "Limonadă Flori de Soc", "name_en": "Elderflower Lemonade", "name_hu": "Bodzavirág Limonádé", "description_ro": "", "description_en": "", "description_hu": "", "weight": "450ml", "price": 20.0},
-    # RĂCORITOARE
-    {"id": "soft-1", "category": "soft", "name_ro": "Pepsi", "name_en": "Pepsi", "name_hu": "Pepsi", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
-    {"id": "soft-2", "category": "soft", "name_ro": "Pepsi Max", "name_en": "Pepsi Max", "name_hu": "Pepsi Max", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
-    {"id": "soft-3", "category": "soft", "name_ro": "7 Up", "name_en": "7 Up", "name_hu": "7 Up", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
-    {"id": "soft-4", "category": "soft", "name_ro": "Redbull", "name_en": "Redbull", "name_hu": "Redbull", "description_ro": "", "description_en": "", "description_hu": "", "weight": "250ml", "price": 15.0},
-    {"id": "soft-5", "category": "soft", "name_ro": "Apă Plată", "name_en": "Still Water", "name_hu": "Szénsavmentes Víz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
-    {"id": "soft-6", "category": "soft", "name_ro": "Apă Carbogazoasă", "name_en": "Sparkling Water", "name_hu": "Szénsavas Víz", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
-    # VIRGIN COCKTAILS
+
+    # ── RĂCORITOARE ──────────────────────────────────────────────────────────
+    {"id": "soft-1",  "category": "soft", "name_ro": "Pepsi",              "name_en": "Pepsi",              "name_hu": "Pepsi",              "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-2",  "category": "soft", "name_ro": "Pepsi Max",          "name_en": "Pepsi Max",          "name_hu": "Pepsi Max",          "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-3",  "category": "soft", "name_ro": "Pepsi Twist",        "name_en": "Pepsi Twist",        "name_hu": "Pepsi Twist",        "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-4",  "category": "soft", "name_ro": "Mirinda",            "name_en": "Mirinda",            "name_hu": "Mirinda",            "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-5",  "category": "soft", "name_ro": "7 Up",               "name_en": "7 Up",               "name_hu": "7 Up",               "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-6",  "category": "soft", "name_ro": "Mountain Dew",       "name_en": "Mountain Dew",       "name_hu": "Mountain Dew",       "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-7",  "category": "soft", "name_ro": "Evervess Bitter",    "name_en": "Evervess Bitter",    "name_hu": "Evervess Bitter",    "description_ro": "", "description_en": "", "description_hu": "", "weight": "250ml", "price": 8.0},
+    {"id": "soft-8",  "category": "soft", "name_ro": "Prigat (Căpșuni, Banane, Piersică, Portocale, Kiwi)", "name_en": "Prigat (Strawberry, Banana, Peach, Orange, Kiwi)", "name_hu": "Prigat (Eper, Banán, Barack, Narancs, Kiwi)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "250ml", "price": 8.0},
+    {"id": "soft-9",  "category": "soft", "name_ro": "Lipton (Piersici, Ceai Verde, Lămâie, Zmeură)", "name_en": "Lipton (Peach, Green Tea, Lemon, Raspberry)", "name_hu": "Lipton (Barack, Zöld Tea, Citrom, Málna)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "500ml", "price": 10.0},
+    {"id": "soft-10", "category": "soft", "name_ro": "Redbull",            "name_en": "Redbull",            "name_hu": "Redbull",            "description_ro": "", "description_en": "", "description_hu": "", "weight": "250ml", "price": 15.0},
+    {"id": "soft-11", "category": "soft", "name_ro": "Apă Plată (mare)",   "name_en": "Still Water (large)","name_hu": "Szénsavmentes Víz (nagy)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 13.0},
+    {"id": "soft-12", "category": "soft", "name_ro": "Apă Plată (mică)",   "name_en": "Still Water (small)","name_hu": "Szénsavmentes Víz (kis)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-13", "category": "soft", "name_ro": "Apă Carbogazoasă (mare)", "name_en": "Sparkling Water (large)", "name_hu": "Szénsavas Víz (nagy)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 13.0},
+    {"id": "soft-14", "category": "soft", "name_ro": "Apă Carbogazoasă (mică)", "name_en": "Sparkling Water (small)", "name_hu": "Szénsavas Víz (kis)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 8.0},
+    {"id": "soft-15", "category": "soft", "name_ro": "Apple Juice (Mango, Mere, Ghimbir)", "name_en": "Apple Juice (Mango, Apple, Ginger)", "name_hu": "Almalé (Mangó, Alma, Gyömbér)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 15.0},
+    {"id": "soft-16", "category": "soft", "name_ro": "Aqua Zmeură", "name_en": "Aqua Raspberry", "name_hu": "Aqua Málna", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 10.0},
+
+    # ── VIRGIN COCKTAILS ─────────────────────────────────────────────────────
     {"id": "virgin-1", "category": "virgin_cocktail", "name_ro": "Butterfly", "name_en": "Butterfly", "name_hu": "Butterfly", "description_ro": "Piure lychee, sirop de lămâie, gheață, apă carbogazificată, mentă", "description_en": "Lychee puree, lemon syrup, ice, sparkling water, mint", "description_hu": "Licsi püré, citromszirup, jég, szódavíz, menta", "weight": "300ml", "price": 20.0},
     {"id": "virgin-2", "category": "virgin_cocktail", "name_ro": "Mojito (fără alcool)", "name_en": "Virgin Mojito", "name_hu": "Alkoholmentes Mojito", "description_ro": "Lime, mentă, cocktail mix, gheață, apă carbogazificată", "description_en": "Lime, mint, cocktail mix, ice, sparkling water", "description_hu": "Lime, menta, koktél mix, jég, szódavíz", "weight": "250ml", "price": 20.0},
     {"id": "virgin-3", "category": "virgin_cocktail", "name_ro": "Pina Colada (fără alcool)", "name_en": "Virgin Pina Colada", "name_hu": "Alkoholmentes Pina Colada", "description_ro": "Cocktail mix, gheață, apă tonică", "description_en": "Cocktail mix, ice, tonic water", "description_hu": "Koktél mix, jég, tonik víz", "weight": "250ml", "price": 20.0},
     {"id": "virgin-4", "category": "virgin_cocktail", "name_ro": "Grandma's Cake", "name_en": "Grandma's Cake", "name_hu": "Grandma's Cake", "description_ro": "Scorțișoare, suc de merișoare, suc de mere, sirop de caramel, gheață", "description_en": "Cinnamon, cranberry juice, apple juice, caramel syrup, ice", "description_hu": "Fahéj, áfonyalé, almalé, karamellszirup, jég", "weight": "250ml", "price": 20.0},
     {"id": "virgin-5", "category": "virgin_cocktail", "name_ro": "Yuzu Watermelon Vera", "name_en": "Yuzu Watermelon Vera", "name_hu": "Yuzu Watermelon Vera", "description_ro": "Piure yuzu, sirop de pepene verde, aloe vera, gheață", "description_en": "Yuzu puree, watermelon syrup, aloe vera, ice", "description_hu": "Yuzu püré, görögdinnye szirup, aloe vera, jég", "weight": "250ml", "price": 20.0},
-    # BERE
-    {"id": "beer-1", "category": "beer", "name_ro": "Carlsberg", "name_en": "Carlsberg", "name_hu": "Carlsberg", "description_ro": "", "description_en": "", "description_hu": "", "weight": "500ml", "price": 10.0},
-    {"id": "beer-2", "category": "beer", "name_ro": "Tuborg", "name_en": "Tuborg", "name_hu": "Tuborg", "description_ro": "", "description_en": "", "description_hu": "", "weight": "500ml", "price": 8.0},
-    {"id": "beer-3", "category": "beer", "name_ro": "Corona", "name_en": "Corona", "name_hu": "Corona", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 15.0},
-    {"id": "beer-4", "category": "beer", "name_ro": "Bucur Blondă", "name_en": "Bucur Blondă", "name_hu": "Bucur Blondă", "description_ro": "", "description_en": "", "description_hu": "", "weight": "350ml", "price": 15.0},
-    # COCKTAILURI
-    {"id": "cocktail-1", "category": "cocktail", "name_ro": "Aperol Spritz", "name_en": "Aperol Spritz", "name_hu": "Aperol Spritz", "description_ro": "Prosecco, Aperol, gheață, apă carbogazificată", "description_en": "Prosecco, Aperol, ice, sparkling water", "description_hu": "Prosecco, Aperol, jég, szódavíz", "weight": "300ml", "price": 25.0},
-    {"id": "cocktail-2", "category": "cocktail", "name_ro": "Mojito", "name_en": "Mojito", "name_hu": "Mojito", "description_ro": "Rom, lime, mentă, apă carbogazoasă, sirop de zahăr, gheață", "description_en": "Rum, lime, mint, sparkling water, sugar syrup, ice", "description_hu": "Rum, lime, menta, szódavíz, cukorszirup, jég", "weight": "250ml", "price": 22.0},
-    {"id": "cocktail-3", "category": "cocktail", "name_ro": "Margarita", "name_en": "Margarita", "name_hu": "Margarita", "description_ro": "Cocktail mix, tequila", "description_en": "Cocktail mix, tequila", "description_hu": "Koktél mix, tequila", "weight": "110ml", "price": 22.0},
-    {"id": "cocktail-4", "category": "cocktail", "name_ro": "Hugo", "name_en": "Hugo", "name_hu": "Hugo", "description_ro": "Frizzante, sirop flori de soc, lime, mentă, apă carbogazoasă, gheață", "description_en": "Frizzante, elderflower syrup, lime, mint, sparkling water, ice", "description_hu": "Frizzante, bodzavirág szirup, lime, menta, szódavíz, jég", "weight": "400ml", "price": 25.0},
-    {"id": "cocktail-5", "category": "cocktail", "name_ro": "Gin Tonic", "name_en": "Gin & Tonic", "name_hu": "Gin Tonic", "description_ro": "Dry gin, Evervess Bitter, lămâie, gheață", "description_en": "Dry gin, Evervess Bitter, lemon, ice", "description_hu": "Dry gin, Evervess Bitter, citrom, jég", "weight": "250ml", "price": 22.0},
-    # VINURI
-    {"id": "wine-1", "category": "wine", "name_ro": "47 Merlot Sec (Fort Silvan)", "name_en": "47 Merlot Dry (Fort Silvan)", "name_hu": "47 Merlot Száraz (Fort Silvan)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 85.0},
-    {"id": "wine-2", "category": "wine", "name_ro": "Fetească Regală Sec (Fort Silvan)", "name_en": "Fetească Regală Dry (Fort Silvan)", "name_hu": "Fetească Regală Száraz (Fort Silvan)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
-    {"id": "wine-3", "category": "wine", "name_ro": "Rosé Sec (Fort Silvan)", "name_en": "Rosé Dry (Fort Silvan)", "name_hu": "Rosé Száraz (Fort Silvan)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
-    {"id": "wine-4", "category": "wine", "name_ro": "Mini Vin Alb/Roșu/Rosé (Purcari)", "name_en": "Mini Wine White/Red/Rosé (Purcari)", "name_hu": "Mini Bor Fehér/Vörös/Rosé (Purcari)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "187ml", "price": 15.0},
+
+    # ── BERE ─────────────────────────────────────────────────────────────────
+    {"id": "beer-1", "category": "beer", "name_ro": "Carlsberg",          "name_en": "Carlsberg",          "name_hu": "Carlsberg",          "description_ro": "", "description_en": "", "description_hu": "", "weight": "500ml", "price": 10.0},
+    {"id": "beer-2", "category": "beer", "name_ro": "Tuborg",             "name_en": "Tuborg",             "name_hu": "Tuborg",             "description_ro": "", "description_en": "", "description_hu": "", "weight": "500ml", "price": 8.0},
+    {"id": "beer-3", "category": "beer", "name_ro": "Tuborg F.A.",        "name_en": "Tuborg N/A",         "name_hu": "Tuborg Alkoholmentes","description_ro": "", "description_en": "", "description_hu": "", "weight": "500ml", "price": 10.0},
+    {"id": "beer-4", "category": "beer", "name_ro": "Draft Tuborg (mare)","name_en": "Draft Tuborg (large)","name_hu": "Csapolt Tuborg (nagy)","description_ro": "", "description_en": "", "description_hu": "", "weight": "400ml", "price": 8.0},
+    {"id": "beer-5", "category": "beer", "name_ro": "Draft Tuborg (mic)", "name_en": "Draft Tuborg (small)","name_hu": "Csapolt Tuborg (kis)","description_ro": "", "description_en": "", "description_hu": "", "weight": "250ml", "price": 7.0},
+    {"id": "beer-6", "category": "beer", "name_ro": "Clausthaler F.A. Lemon", "name_en": "Clausthaler N/A Lemon", "name_hu": "Clausthaler Alkoholmentes Citrom", "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 15.0},
+    {"id": "beer-7", "category": "beer", "name_ro": "Corona",             "name_en": "Corona",             "name_hu": "Corona",             "description_ro": "", "description_en": "", "description_hu": "", "weight": "330ml", "price": 15.0},
+    {"id": "beer-8", "category": "beer", "name_ro": "Bucur Blondă",       "name_en": "Bucur Blondă",       "name_hu": "Bucur Szőke",        "description_ro": "", "description_en": "", "description_hu": "", "weight": "350ml", "price": 15.0},
+
+    # ── COCKTAILURI ──────────────────────────────────────────────────────────
+    {"id": "cocktail-1", "category": "cocktail", "name_ro": "Aperol Spritz",     "name_en": "Aperol Spritz",     "name_hu": "Aperol Spritz",     "description_ro": "Prosecco, Aperol, gheață, apă carbogazificată",           "description_en": "Prosecco, Aperol, ice, sparkling water",          "description_hu": "Prosecco, Aperol, jég, szódavíz",           "weight": "300ml", "price": 25.0},
+    {"id": "cocktail-2", "category": "cocktail", "name_ro": "Pina Colada",       "name_en": "Pina Colada",       "name_hu": "Pina Colada",       "description_ro": "Cocktail mix, gheață, rom",                              "description_en": "Cocktail mix, ice, rum",                          "description_hu": "Koktél mix, jég, rum",                   "weight": "250ml", "price": 25.0},
+    {"id": "cocktail-3", "category": "cocktail", "name_ro": "Margarita",         "name_en": "Margarita",         "name_hu": "Margarita",         "description_ro": "Cocktail mix, tequila",                                  "description_en": "Cocktail mix, tequila",                           "description_hu": "Koktél mix, tequila",                    "weight": "110ml", "price": 22.0},
+    {"id": "cocktail-4", "category": "cocktail", "name_ro": "Coconut Cramberry", "name_en": "Coconut Cranberry", "name_hu": "Kókuszos Áfonya",   "description_ro": "Rom cu cocos, suc de merișoare, gheață",               "description_en": "Coconut rum, cranberry juice, ice",              "description_hu": "Kókuszos rum, áfonyalé, jég",            "weight": "250ml", "price": 22.0},
+    {"id": "cocktail-5", "category": "cocktail", "name_ro": "Mojito",            "name_en": "Mojito",            "name_hu": "Mojito",            "description_ro": "Rom, lime, mentă, apă carbogazoasă, sirop de zahăr, gheață", "description_en": "Rum, lime, mint, sparkling water, sugar syrup, ice", "description_hu": "Rum, lime, menta, szódavíz, cukorszirup, jég", "weight": "250ml", "price": 22.0},
+    {"id": "cocktail-6", "category": "cocktail", "name_ro": "Hugo",              "name_en": "Hugo",              "name_hu": "Hugo",              "description_ro": "Frizzante, sirop flori de soc, lime, mentă, apă carbogazoasă, gheață", "description_en": "Frizzante, elderflower syrup, lime, mint, sparkling water, ice", "description_hu": "Frizzante, bodzavirág szirup, lime, menta, szódavíz, jég", "weight": "400ml", "price": 25.0},
+    {"id": "cocktail-7", "category": "cocktail", "name_ro": "Lillet",            "name_en": "Lillet",            "name_hu": "Lillet",            "description_ro": "Schweppes, Lillet, gheață",                              "description_en": "Schweppes, Lillet, ice",                          "description_hu": "Schweppes, Lillet, jég",                 "weight": "250ml", "price": 25.0},
+    {"id": "cocktail-8", "category": "cocktail", "name_ro": "Gin Tonic",         "name_en": "Gin & Tonic",       "name_hu": "Gin Tonic",         "description_ro": "Dry gin, Evervess Bitter, lămâie, gheață",               "description_en": "Dry gin, Evervess Bitter, lemon, ice",            "description_hu": "Dry gin, Evervess Bitter, citrom, jég",  "weight": "250ml", "price": 22.0},
+
+    # ── VINURI ───────────────────────────────────────────────────────────────
+    # Fort Silvan
+    {"id": "wine-1",  "category": "wine", "name_ro": "47 Merlot Sec (Fort Silvan)",          "name_en": "47 Merlot Dry (Fort Silvan)",          "name_hu": "47 Merlot Száraz (Fort Silvan)",          "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 85.0},
+    {"id": "wine-2",  "category": "wine", "name_ro": "Venator Pinot Noir Sec (Fort Silvan)", "name_en": "Venator Pinot Noir Dry (Fort Silvan)", "name_hu": "Venator Pinot Noir Száraz (Fort Silvan)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml",  "price": 70.0},
+    {"id": "wine-3",  "category": "wine", "name_ro": "Fetească Regală Sec (Fort Silvan)",    "name_en": "Fetească Regală Dry (Fort Silvan)",    "name_hu": "Fetească Regală Száraz (Fort Silvan)",    "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
+    {"id": "wine-4",  "category": "wine", "name_ro": "Stephanus Sec (Fort Silvan)",          "name_en": "Stephanus Dry (Fort Silvan)",          "name_hu": "Stephanus Száraz (Fort Silvan)",          "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
+    {"id": "wine-5",  "category": "wine", "name_ro": "Traminer Sec (Fort Silvan)",           "name_en": "Traminer Dry (Fort Silvan)",           "name_hu": "Traminer Száraz (Fort Silvan)",           "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
+    {"id": "wine-6",  "category": "wine", "name_ro": "Rosé Sec (Fort Silvan)",               "name_en": "Rosé Dry (Fort Silvan)",               "name_hu": "Rosé Száraz (Fort Silvan)",               "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
+    # Balla Geza
+    {"id": "wine-7",  "category": "wine", "name_ro": "Fetească Neagră Sec (Balla Geza)",     "name_en": "Fetească Neagră Dry (Balla Geza)",     "name_hu": "Fekete Leányka Száraz (Balla Géza)",      "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
+    {"id": "wine-8",  "category": "wine", "name_ro": "Cadarcă Sec (Balla Geza)",             "name_en": "Cadarcă Dry (Balla Geza)",             "name_hu": "Kadarka Száraz (Balla Géza)",             "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 70.0},
+    {"id": "wine-9",  "category": "wine", "name_ro": "Stone Wine Cadarcă Fetească Neagră Sec (Balla Geza)", "name_en": "Stone Wine Cadarcă Fetească Neagră Dry (Balla Geza)", "name_hu": "Stone Wine Kadarka Fekete Leányka Száraz (Balla Géza)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 100.0},
+    # Purcari
+    {"id": "wine-10", "category": "wine", "name_ro": "Purcari (Rară Neagră, Sauvignon Blanc, Chardonnay)", "name_en": "Purcari (Rară Neagră, Sauvignon Blanc, Chardonnay)", "name_hu": "Purcari (Rară Neagră, Sauvignon Blanc, Chardonnay)", "description_ro": "", "description_en": "", "description_hu": "", "weight": "750ml", "price": 75.0},
+    {"id": "wine-11", "category": "wine", "name_ro": "Mini Vin Alb/Roșu/Rosé (Purcari)",    "name_en": "Mini Wine White/Red/Rosé (Purcari)",    "name_hu": "Mini Bor Fehér/Vörös/Rosé (Purcari)",    "description_ro": "", "description_en": "", "description_hu": "", "weight": "187ml", "price": 15.0},
+
+    # ── BĂUTURI SCURTE ───────────────────────────────────────────────────────
+    {"id": "short-1",  "category": "short_drink", "name_ro": "Jagermeister",    "name_en": "Jagermeister",    "name_hu": "Jägermeister",    "description_ro": "", "description_en": "", "description_hu": "", "weight": "40ml", "price": 10.0},
+    {"id": "short-2",  "category": "short_drink", "name_ro": "Baileys",         "name_en": "Baileys",         "name_hu": "Baileys",         "description_ro": "", "description_en": "", "description_hu": "", "weight": "40ml", "price": 12.0},
+    {"id": "short-3",  "category": "short_drink", "name_ro": "Jack Daniels",    "name_en": "Jack Daniels",    "name_hu": "Jack Daniels",    "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 14.0},
+    {"id": "short-4",  "category": "short_drink", "name_ro": "Honey Jack",      "name_en": "Honey Jack",      "name_hu": "Honey Jack",      "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 15.0},
+    {"id": "short-5",  "category": "short_drink", "name_ro": "Jack Single Barrel","name_en": "Jack Single Barrel","name_hu": "Jack Single Barrel","description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 20.0},
+    {"id": "short-6",  "category": "short_drink", "name_ro": "Alexandrion",     "name_en": "Alexandrion",     "name_hu": "Alexandrion",     "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 10.0},
+    {"id": "short-7",  "category": "short_drink", "name_ro": "Jidvei",          "name_en": "Jidvei",          "name_hu": "Jidvei",          "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 12.0},
+    {"id": "short-8",  "category": "short_drink", "name_ro": "Vodka",           "name_en": "Vodka",           "name_hu": "Vodka",           "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 10.0},
+    {"id": "short-9",  "category": "short_drink", "name_ro": "Tequila",         "name_en": "Tequila",         "name_hu": "Tequila",         "description_ro": "", "description_en": "", "description_hu": "", "weight": "40ml", "price": 10.0},
+    {"id": "short-10", "category": "short_drink", "name_ro": "Unicum",          "name_en": "Unicum",          "name_hu": "Unicum",          "description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 15.0},
+    {"id": "short-11", "category": "short_drink", "name_ro": "Courvaiser Coniac","name_en": "Courvoisier Cognac","name_hu": "Courvoisier Konyak","description_ro": "", "description_en": "", "description_hu": "", "weight": "50ml", "price": 15.0},
 ]
 
 CATEGORIES = [
-    {"id": "burger", "name_ro": "Burgeri", "name_en": "Burgers", "name_hu": "Burgerek", "icon": "beef"},
-    {"id": "pizza", "name_ro": "Pizza", "name_en": "Pizza", "name_hu": "Pizza", "icon": "pizza"},
-    {"id": "appetizer", "name_ro": "Antreu & Supă", "name_en": "Appetizers & Soups", "name_hu": "Előétel & Leves", "icon": "soup"},
-    {"id": "salad", "name_ro": "Salate", "name_en": "Salads", "name_hu": "Saláták", "icon": "salad"},
-    {"id": "pasta", "name_ro": "Paste & Risotto", "name_en": "Pasta & Risotto", "name_hu": "Tészta & Risotto", "icon": "utensils-crossed"},
-    {"id": "main", "name_ro": "Fel Principal", "name_en": "Main Courses", "name_hu": "Főétel", "icon": "chef-hat"},
-    {"id": "snack", "name_ro": "Snacks", "name_en": "Snacks", "name_hu": "Snackek", "icon": "french-fries"},
-    {"id": "dessert", "name_ro": "Desert", "name_en": "Desserts", "name_hu": "Desszertek", "icon": "cake-slice"},
-    {"id": "coffee", "name_ro": "Cafele & Ceaiuri", "name_en": "Coffee & Tea", "name_hu": "Kávé & Tea", "icon": "coffee"},
-    {"id": "fresh", "name_ro": "Fresh-uri", "name_en": "Fresh Juices", "name_hu": "Friss Gyümölcslevek", "icon": "citrus"},
-    {"id": "lemonade", "name_ro": "Limonade", "name_en": "Lemonade", "name_hu": "Limonádé", "icon": "glass-water"},
-    {"id": "soft", "name_ro": "Răcoritoare", "name_en": "Soft Drinks", "name_hu": "Üdítők", "icon": "cup-soda"},
-    {"id": "virgin_cocktail", "name_ro": "Virgin Cocktails", "name_en": "Virgin Cocktails", "name_hu": "Alkoholmentes Koktélok", "icon": "martini"},
-    {"id": "beer", "name_ro": "Bere", "name_en": "Beer", "name_hu": "Sör", "icon": "beer"},
-    {"id": "cocktail", "name_ro": "Cocktailuri", "name_en": "Cocktails", "name_hu": "Koktélok", "icon": "wine"},
-    {"id": "wine", "name_ro": "Vinuri", "name_en": "Wines", "name_hu": "Borok", "icon": "grape"},
+    {"id": "burger",       "name_ro": "Burgeri",           "name_en": "Burgers",         "name_hu": "Burgerek",                 "icon": "beef"},
+    {"id": "pizza",        "name_ro": "Pizza",             "name_en": "Pizza",           "name_hu": "Pizza",                    "icon": "pizza"},
+    {"id": "appetizer",    "name_ro": "Antreu & Supă",     "name_en": "Appetizers & Soups","name_hu": "Előétel & Leves",        "icon": "soup"},
+    {"id": "salad",        "name_ro": "Salate",            "name_en": "Salads",          "name_hu": "Saláták",                  "icon": "salad"},
+    {"id": "pasta",        "name_ro": "Paste & Risotto",   "name_en": "Pasta & Risotto", "name_hu": "Tészta & Risotto",         "icon": "utensils-crossed"},
+    {"id": "main",         "name_ro": "Fel Principal",     "name_en": "Main Courses",    "name_hu": "Főétel",                   "icon": "chef-hat"},
+    {"id": "snack",        "name_ro": "Snacks",            "name_en": "Snacks",          "name_hu": "Snackek",                  "icon": "french-fries"},
+    {"id": "dessert",      "name_ro": "Desert",            "name_en": "Desserts",        "name_hu": "Desszertek",               "icon": "cake-slice"},
+    {"id": "coffee",       "name_ro": "Cafele & Ceaiuri",  "name_en": "Coffee & Tea",    "name_hu": "Kávé & Tea",               "icon": "coffee"},
+    {"id": "fresh",        "name_ro": "Fresh-uri",         "name_en": "Fresh Juices",    "name_hu": "Friss Gyümölcslevek",      "icon": "citrus"},
+    {"id": "lemonade",     "name_ro": "Limonade",          "name_en": "Lemonade",        "name_hu": "Limonádé",                 "icon": "glass-water"},
+    {"id": "soft",         "name_ro": "Răcoritoare",       "name_en": "Soft Drinks",     "name_hu": "Üdítők",                   "icon": "cup-soda"},
+    {"id": "virgin_cocktail","name_ro": "Virgin Cocktails","name_en": "Virgin Cocktails","name_hu": "Alkoholmentes Koktélok",   "icon": "martini"},
+    {"id": "beer",         "name_ro": "Bere",              "name_en": "Beer",            "name_hu": "Sör",                      "icon": "beer"},
+    {"id": "cocktail",     "name_ro": "Cocktailuri",       "name_en": "Cocktails",       "name_hu": "Koktélok",                 "icon": "wine"},
+    {"id": "wine",         "name_ro": "Vinuri",            "name_en": "Wines",           "name_hu": "Borok",                    "icon": "grape"},
+    {"id": "short_drink",  "name_ro": "Băuturi Scurte",    "name_en": "Short Drinks",    "name_hu": "Röviditalok",              "icon": "glass"},
 ]
