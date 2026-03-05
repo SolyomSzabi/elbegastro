@@ -42,6 +42,7 @@ export default function MenuSection() {
       );
     }
     return filtered;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [menuItems, activeCategory, search, language, getItemName, getItemDesc]);
 
   const handleAddToCart = (item) => {
