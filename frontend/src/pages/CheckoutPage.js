@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Minus, Plus, Trash2, CreditCard, Banknote, ArrowLeft, ShoppingCart, MessageSquare, X } from 'lucide-react';
+import { Minus, Plus, Trash2, Banknote, ArrowLeft, ShoppingCart, MessageSquare, X } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function CheckoutPage() {
-  const { items, foodItems, extraItems, updateQuantity, removeItem, updateNotes, totalPrice, totalItems, clearCart, getLinkedExtras } = useCart();
+  const { items, foodItems, updateQuantity, removeItem, updateNotes, totalPrice, totalItems, clearCart, getLinkedExtras } = useCart();
   const { t, language, getItemName } = useLanguage();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({ customer_name: '', phone: '', email: '', notes: '' });
-  const [paymentMethod, setPaymentMethod] = useState('card');
   const [loading, setLoading] = useState(false);
   const [expandedNotes, setExpandedNotes] = useState({});
 
@@ -38,48 +37,38 @@ export default function CheckoutPage() {
 
     setLoading(true);
     try {
-      // Build items with notes including linked extras
+      // Build per-item notes cleanly
       const orderItems = items.map(i => {
-        let itemNotes = '';
-        if (!i.parentInstanceId) {
-          // Food item - compile notes using instanceId for linked extras
-          const linked = getLinkedExtras(i.instanceId);
-          const extraNames = linked.map(e => `${getItemName(e)} x${e.quantity}`).join(', ');
-          const parts = [];
-          if (extraNames) parts.push(`${noteLabel.extras}: ${extraNames}`);
-          if (i.notes) parts.push(i.notes);
-          itemNotes = parts.join(' | ');
-        }
+        if (i.parentInstanceId) return { item_id: i.id, quantity: i.quantity };
+        const linked = getLinkedExtras(i.instanceId);
+        const extraNames = linked.map(e => `${getItemName(e)} x${e.quantity}`).join(', ');
+        const parts = [];
+        if (extraNames) parts.push(`${noteLabel.extras}: ${extraNames}`);
+        if (i.notes) parts.push(i.notes);
         return {
           item_id: i.id,
-          instance_id: i.instanceId,
           quantity: i.quantity,
-          notes: itemNotes
+          notes: parts.join(' | ')
         };
       });
 
+      // Build global notes - only general notes, per-item notes stay on items
+      const globalNotes = formData.notes.trim();
+
       const orderRes = await axios.post(`${API}/orders`, {
         ...formData,
-        payment_method: paymentMethod,
+        notes: globalNotes,
+        payment_method: 'cash',
         items: orderItems.map(i => ({ item_id: i.item_id, quantity: i.quantity })),
-        notes: formData.notes + (orderItems.filter(i => i.notes).length > 0
-          ? '\n\n--- Per-item notes ---\n' + orderItems.filter(i => i.notes).map(i => `${i.item_id}: ${i.notes}`).join('\n')
-          : ''),
+        per_item_notes: orderItems
+          .filter(i => i.notes)
+          .map(i => ({ item_id: i.item_id, notes: i.notes })),
         language
       });
 
       const order = orderRes.data;
-
-      if (paymentMethod === 'card') {
-        const checkoutRes = await axios.post(`${API}/checkout/session`, {
-          order_id: order.id,
-          origin_url: window.location.origin
-        });
-        window.location.href = checkoutRes.data.url;
-      } else {
-        clearCart();
-        navigate(`/order-confirmation?order_id=${order.id}&payment=cash`);
-      }
+      clearCart();
+      navigate(`/order-confirmation?order_id=${order.id}&payment=cash`);
     } catch (err) {
       toast.error('Failed to place order. Please try again.');
       console.error(err);
@@ -152,26 +141,14 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          {/* Payment Method */}
+          {/* Payment Method - only cash */}
           <div>
             <label className="block text-sm text-[#8B7D6B] uppercase tracking-[0.15em] mb-4 font-['Oswald',sans-serif]">{t('checkout.paymentMethod')}</label>
-            <div className="grid grid-cols-2 gap-4">
-              <button type="button" onClick={() => setPaymentMethod('card')}
-                className={`flex items-center gap-3 p-4 border rounded-sm transition-all ${paymentMethod === 'card' ? 'border-[#C8572D] bg-[#C8572D]/10' : 'border-[#332C22] hover:border-[#C8572D]/50'}`}
-                data-testid="payment-card">
-                <CreditCard size={20} className={paymentMethod === 'card' ? 'text-[#C8572D]' : 'text-[#8B7D6B]'} strokeWidth={1.5} />
-                <span className={`text-sm font-bold uppercase tracking-wider font-['Oswald',sans-serif] ${paymentMethod === 'card' ? 'text-[#C8572D]' : 'text-[#8B7D6B]'}`}>
-                  {t('checkout.card')}
-                </span>
-              </button>
-              <button type="button" onClick={() => setPaymentMethod('cash')}
-                className={`flex items-center gap-3 p-4 border rounded-sm transition-all ${paymentMethod === 'cash' ? 'border-[#C8572D] bg-[#C8572D]/10' : 'border-[#332C22] hover:border-[#C8572D]/50'}`}
-                data-testid="payment-cash">
-                <Banknote size={20} className={paymentMethod === 'cash' ? 'text-[#C8572D]' : 'text-[#8B7D6B]'} strokeWidth={1.5} />
-                <span className={`text-sm font-bold uppercase tracking-wider font-['Oswald',sans-serif] ${paymentMethod === 'cash' ? 'text-[#C8572D]' : 'text-[#8B7D6B]'}`}>
-                  {t('checkout.cash')}
-                </span>
-              </button>
+            <div className="flex items-center gap-3 p-4 border border-[#C8572D] bg-[#C8572D]/10 rounded-sm">
+              <Banknote size={20} className="text-[#C8572D]" strokeWidth={1.5} />
+              <span className="text-sm font-bold uppercase tracking-wider font-['Oswald',sans-serif] text-[#C8572D]">
+                {t('checkout.cash')}
+              </span>
             </div>
           </div>
 
@@ -191,12 +168,10 @@ export default function CheckoutPage() {
               {foodItems.map(item => {
                 const linked = getLinkedExtras(item.instanceId);
                 const isNotesOpen = expandedNotes[item.instanceId];
-                // Calculate extras total and item subtotal
                 const extrasTotal = linked.reduce((sum, e) => sum + (e.price * e.quantity), 0);
                 const itemSubtotal = (item.price * item.quantity) + extrasTotal;
                 return (
                   <div key={item.instanceId} className="bg-[#1A1714] border border-[#332C22] rounded-sm p-3" data-testid={`summary-item-${item.instanceId}`}>
-                    {/* Main item row */}
                     <div className="flex items-start gap-3">
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-[#E8DDD0] font-semibold font-['Oswald',sans-serif] truncate uppercase">{getItemName(item)}</p>
@@ -216,7 +191,6 @@ export default function CheckoutPage() {
                       </div>
                     </div>
 
-                    {/* Linked extras with prices */}
                     {linked.length > 0 && (
                       <div className="mt-2 space-y-1" data-testid={`linked-extras-${item.instanceId}`}>
                         {linked.map(extra => (
@@ -238,7 +212,6 @@ export default function CheckoutPage() {
                       </div>
                     )}
 
-                    {/* Item subtotal */}
                     <div className="mt-2 pt-2 border-t border-[#332C22]/50 flex justify-between items-center">
                       <span className="text-[10px] text-[#8B7D6B] uppercase tracking-wider font-['Oswald',sans-serif]">
                         {linked.length > 0 ? 'Subtotal' : ''}
@@ -248,7 +221,6 @@ export default function CheckoutPage() {
                       </span>
                     </div>
 
-                    {/* Notes toggle + input */}
                     <div className="mt-2">
                       <button onClick={() => toggleNotes(item.instanceId)} className="flex items-center gap-1 text-[10px] text-[#8B7D6B] hover:text-[#C8572D] transition-colors uppercase tracking-wider font-['Oswald',sans-serif]" data-testid={`toggle-notes-${item.instanceId}`}>
                         <MessageSquare size={10} />
