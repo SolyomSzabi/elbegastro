@@ -34,6 +34,10 @@ class CartItem(BaseModel):
     item_id: str
     quantity: int
 
+class PerItemNote(BaseModel):
+    item_id: str
+    notes: str = ""
+
 class OrderCreate(BaseModel):
     customer_name: str
     phone: str
@@ -42,6 +46,7 @@ class OrderCreate(BaseModel):
     payment_method: str  # "card" or "cash"
     items: List[CartItem]
     language: str = "ro"
+    per_item_notes: Optional[List[PerItemNote]] = []
 
 class CheckoutRequest(BaseModel):
     order_id: str
@@ -82,14 +87,40 @@ def calculate_order_total(items: List[CartItem]) -> float:
         total += price * cart_item.quantity
     return round(total, 2)
 
+def is_ordering_open() -> bool:
+    """Ellenőrzi hogy nyitva van-e a rendelési időablak (román idő szerint)"""
+    import pytz
+    tz = pytz.timezone("Europe/Bucharest")
+    now = datetime.now(tz)
+    weekday = now.weekday()  # 0=Hétfő, 5=Szombat, 6=Vasárnap
+    hour = now.hour
+    minute = now.minute
+    current_minutes = hour * 60 + minute
+    open_minutes = 12 * 60  # 12:00
+    if weekday >= 5:  # Hétvége
+        close_minutes = 23 * 60 + 30  # 23:30
+    else:  # Hétköznap
+        close_minutes = 22 * 60 + 30  # 22:30
+    return open_minutes <= current_minutes <= close_minutes
+
 @api_router.post("/orders")
 async def create_order(order: OrderCreate):
+    if not is_ordering_open():
+        raise HTTPException(
+            status_code=400,
+            detail="ordering_closed"
+        )
     total = calculate_order_total(order.items)
     order_id = str(uuid.uuid4())[:8].upper()
 
     items_detail = []
     menu_map = {item["id"]: item for item in MENU_ITEMS}
     extras_map = {item["id"]: item for item in EXTRAS}
+    # Per-item notes mapping
+    per_item_notes = {}
+    if hasattr(order, 'per_item_notes') and order.per_item_notes:
+        for pin in order.per_item_notes:
+            per_item_notes[pin.get("item_id", "")] = pin.get("notes", "")
     for cart_item in order.items:
         menu_item = menu_map.get(cart_item.item_id) or extras_map.get(cart_item.item_id)
         if menu_item:
@@ -100,7 +131,8 @@ async def create_order(order: OrderCreate):
                 "name": menu_item.get(name_key, menu_item["name_ro"]),
                 "price": menu_item["price"],
                 "quantity": cart_item.quantity,
-                "subtotal": round(menu_item["price"] * cart_item.quantity, 2)
+                "subtotal": round(menu_item["price"] * cart_item.quantity, 2),
+                "notes": per_item_notes.get(cart_item.item_id, "")
             })
 
     order_doc = {
