@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,6 +8,19 @@ import axios from 'axios';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
+function checkIsOpen() {
+  const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Bucharest' }));
+  const weekday = now.getDay(); // 0=Vasárnap, 6=Szombat
+  const isWeekend = weekday === 0 || weekday === 6;
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  const openMinutes = 12 * 60;
+  const closeMinutes = isWeekend ? 23 * 60 + 30 : 22 * 60 + 30;
+  return {
+    open: currentMinutes >= openMinutes && currentMinutes <= closeMinutes,
+    closeTime: isWeekend ? '23:30' : '22:30'
+  };
+}
+
 export default function CheckoutPage() {
   const { items, foodItems, updateQuantity, removeItem, updateNotes, totalPrice, totalItems, clearCart, getLinkedExtras } = useCart();
   const { t, language, getItemName } = useLanguage();
@@ -16,6 +29,19 @@ export default function CheckoutPage() {
   const [formData, setFormData] = useState({ customer_name: '', phone: '', email: '', notes: '' });
   const [loading, setLoading] = useState(false);
   const [expandedNotes, setExpandedNotes] = useState({});
+  const [isOpen, setIsOpen] = useState(true);
+  const [closeTime, setCloseTime] = useState('22:30');
+
+  useEffect(() => {
+    const update = () => {
+      const { open, closeTime: ct } = checkIsOpen();
+      setIsOpen(open);
+      setCloseTime(ct);
+    };
+    update();
+    const interval = setInterval(update, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
@@ -32,14 +58,19 @@ export default function CheckoutPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isOpen) {
+      toast.error('Rendelés csak 12:00 - ' + closeTime + ' között lehetséges');
+      return;
+    }
     if (items.length === 0) { toast.error('Cart is empty'); return; }
-    if (!formData.customer_name || !formData.phone || !formData.email) { toast.error('Please fill in all required fields'); return; }
+    if (!formData.customer_name || !formData.phone || !formData.email) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
 
     setLoading(true);
     try {
-      // Build per-item notes cleanly
-      const orderItems = items.map(i => {
-        if (i.parentInstanceId) return { item_id: i.id, quantity: i.quantity };
+      const orderItems = foodItems.map(i => {
         const linked = getLinkedExtras(i.instanceId);
         const extraNames = linked.map(e => `${getItemName(e)} x${e.quantity}`).join(', ');
         const parts = [];
@@ -52,14 +83,15 @@ export default function CheckoutPage() {
         };
       });
 
-      // Build global notes - only general notes, per-item notes stay on items
-      const globalNotes = formData.notes.trim();
+      const allItems = items.map(i => ({ item_id: i.id, quantity: i.quantity }));
 
       const orderRes = await axios.post(`${API}/orders`, {
-        ...formData,
-        notes: globalNotes,
+        customer_name: formData.customer_name,
+        phone: formData.phone,
+        email: formData.email,
+        notes: formData.notes.trim(),
         payment_method: 'cash',
-        items: orderItems.map(i => ({ item_id: i.item_id, quantity: i.quantity })),
+        items: allItems,
         per_item_notes: orderItems
           .filter(i => i.notes)
           .map(i => ({ item_id: i.item_id, notes: i.notes })),
@@ -70,7 +102,11 @@ export default function CheckoutPage() {
       clearCart();
       navigate(`/order-confirmation?order_id=${order.id}&payment=cash`);
     } catch (err) {
-      toast.error('Failed to place order. Please try again.');
+      if (err.response?.data?.detail === 'ordering_closed') {
+        toast.error('Restaurantul este închis. Comenzile se acceptă 12:00 - ' + closeTime);
+      } else {
+        toast.error('Failed to place order. Please try again.');
+      }
       console.error(err);
     }
     setLoading(false);
@@ -100,8 +136,20 @@ export default function CheckoutPage() {
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-        {/* Order Form */}
         <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-8" data-testid="checkout-form">
+
+          {/* Closed notice */}
+          {!isOpen && (
+            <div className="bg-red-900/20 border border-red-500/40 rounded-sm p-5">
+              <p className="text-sm text-red-400 uppercase tracking-[0.2em] font-bold mb-1 font-['Oswald',sans-serif]">
+                🔴 Momentan închis
+              </p>
+              <p className="text-sm text-red-400/70 font-['Source_Sans_3',sans-serif]">
+                Comenzile se acceptă Luni-Vineri 12:00-22:30, Sâmbătă-Duminică 12:00-23:30
+              </p>
+            </div>
+          )}
+
           {/* Pickup notice */}
           <div className="bg-[#252019] border border-[#332C22] rounded-sm p-5">
             <p className="text-sm text-[#C8572D] uppercase tracking-[0.2em] font-bold mb-1 font-['Oswald',sans-serif]">
@@ -141,7 +189,7 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          {/* Payment Method - only cash */}
+          {/* Payment Method */}
           <div>
             <label className="block text-sm text-[#8B7D6B] uppercase tracking-[0.15em] mb-4 font-['Oswald',sans-serif]">{t('checkout.paymentMethod')}</label>
             <div className="flex items-center gap-3 p-4 border border-[#C8572D] bg-[#C8572D]/10 rounded-sm">
@@ -153,9 +201,16 @@ export default function CheckoutPage() {
           </div>
 
           {/* Submit */}
-          <button type="submit" disabled={loading}
-            className="w-full bg-[#C8572D] text-white py-4 rounded-sm uppercase tracking-[0.25em] font-bold text-sm hover:bg-[#A84523] transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed font-['Oswald',sans-serif]"
-            data-testid="place-order-btn">
+          <button
+            type="submit"
+            disabled={loading || !isOpen}
+            className={`w-full py-4 rounded-sm uppercase tracking-[0.25em] font-bold text-sm transition-all duration-300 shadow-lg font-['Oswald',sans-serif] ${
+              isOpen
+                ? 'bg-[#C8572D] text-white hover:bg-[#A84523] cursor-pointer'
+                : 'bg-[#332C22] text-[#5C5347] cursor-not-allowed'
+            } disabled:opacity-50`}
+            data-testid="place-order-btn"
+          >
             {loading ? t('checkout.paying') : t('checkout.placeOrder')}
           </button>
         </form>
@@ -178,21 +233,21 @@ export default function CheckoutPage() {
                         <p className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">{item.price} RON x{item.quantity}</p>
                       </div>
                       <div className="flex items-center gap-1.5 shrink-0">
-                        <button onClick={() => updateQuantity(item.instanceId, item.quantity - 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-minus-${item.instanceId}`}>
+                        <button onClick={() => updateQuantity(item.instanceId, item.quantity - 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors">
                           <Minus size={10} />
                         </button>
-                        <span className="text-sm font-bold text-[#E8DDD0] w-5 text-center font-['Source_Sans_3',sans-serif]" data-testid={`qty-display-${item.instanceId}`}>{item.quantity}</span>
-                        <button onClick={() => updateQuantity(item.instanceId, item.quantity + 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors" data-testid={`qty-plus-${item.instanceId}`}>
+                        <span className="text-sm font-bold text-[#E8DDD0] w-5 text-center font-['Source_Sans_3',sans-serif]">{item.quantity}</span>
+                        <button onClick={() => updateQuantity(item.instanceId, item.quantity + 1)} className="w-6 h-6 flex items-center justify-center border border-[#332C22] rounded-sm text-[#8B7D6B] hover:border-[#C8572D] hover:text-[#C8572D] transition-colors">
                           <Plus size={10} />
                         </button>
-                        <button onClick={() => removeItem(item.instanceId)} className="w-6 h-6 flex items-center justify-center text-[#5C5347] hover:text-red-500 transition-colors" data-testid={`remove-item-${item.instanceId}`}>
+                        <button onClick={() => removeItem(item.instanceId)} className="w-6 h-6 flex items-center justify-center text-[#5C5347] hover:text-red-500 transition-colors">
                           <Trash2 size={12} />
                         </button>
                       </div>
                     </div>
 
                     {linked.length > 0 && (
-                      <div className="mt-2 space-y-1" data-testid={`linked-extras-${item.instanceId}`}>
+                      <div className="mt-2 space-y-1">
                         {linked.map(extra => (
                           <div key={extra.instanceId} className="flex items-center justify-between bg-[#252019] border border-[#332C22] rounded-sm px-2 py-1.5">
                             <div className="flex items-center gap-2 min-w-0">
@@ -203,7 +258,7 @@ export default function CheckoutPage() {
                               <span className="text-xs text-[#8B7D6B] font-['Source_Sans_3',sans-serif]">
                                 {extra.price} RON x{extra.quantity}
                               </span>
-                              <button onClick={() => removeItem(extra.instanceId)} className="text-[#5C5347] hover:text-red-400 transition-colors" data-testid={`remove-extra-${extra.instanceId}`}>
+                              <button onClick={() => removeItem(extra.instanceId)} className="text-[#5C5347] hover:text-red-400 transition-colors">
                                 <X size={12} />
                               </button>
                             </div>
@@ -216,13 +271,16 @@ export default function CheckoutPage() {
                       <span className="text-[10px] text-[#8B7D6B] uppercase tracking-wider font-['Oswald',sans-serif]">
                         {linked.length > 0 ? 'Subtotal' : ''}
                       </span>
-                      <span className="text-sm font-bold text-[#C8572D] font-['Bebas_Neue',sans-serif]" data-testid={`item-subtotal-${item.instanceId}`}>
+                      <span className="text-sm font-bold text-[#C8572D] font-['Bebas_Neue',sans-serif]">
                         {itemSubtotal.toFixed(2)} RON
                       </span>
                     </div>
 
                     <div className="mt-2">
-                      <button onClick={() => toggleNotes(item.instanceId)} className="flex items-center gap-1 text-[10px] text-[#8B7D6B] hover:text-[#C8572D] transition-colors uppercase tracking-wider font-['Oswald',sans-serif]" data-testid={`toggle-notes-${item.instanceId}`}>
+                      <button
+                        onClick={() => toggleNotes(item.instanceId)}
+                        className="flex items-center gap-1 text-[10px] text-[#8B7D6B] hover:text-[#C8572D] transition-colors uppercase tracking-wider font-['Oswald',sans-serif]"
+                      >
                         <MessageSquare size={10} />
                         {noteLabel.addNote}
                         {item.notes && <span className="w-1.5 h-1.5 rounded-full bg-[#C8572D] ml-1" />}
@@ -234,7 +292,6 @@ export default function CheckoutPage() {
                           placeholder={noteLabel.notePlaceholder}
                           rows={2}
                           className="w-full mt-1.5 bg-[#252019] border border-[#332C22] focus:border-[#C8572D] rounded-sm px-2 py-1.5 text-xs text-[#E8DDD0] placeholder:text-[#5C5347] focus:ring-0 focus:outline-none transition-colors resize-none font-['Source_Sans_3',sans-serif]"
-                          data-testid={`item-notes-${item.instanceId}`}
                         />
                       )}
                     </div>
