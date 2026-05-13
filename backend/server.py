@@ -92,14 +92,14 @@ def is_ordering_open() -> bool:
     import pytz
     tz = pytz.timezone("Europe/Bucharest")
     now = datetime.now(tz)
-    weekday = now.weekday()  # 0=Hétfő, 5=Szombat, 6=Vasárnap
+    weekday = now.weekday()  # 0=Hétfő, 4=Péntek, 5=Szombat, 6=Vasárnap
     hour = now.hour
     minute = now.minute
     current_minutes = hour * 60 + minute
     open_minutes = 12 * 60  # 12:00
-    if weekday >= 5:  # Hétvége
+    if weekday == 4 or weekday == 5:  # Péntek vagy Szombat
         close_minutes = 23 * 60 + 30  # 23:30
-    else:  # Hétköznap
+    else:  # Többi nap
         close_minutes = 22 * 60 + 30  # 22:30
     return open_minutes <= current_minutes <= close_minutes
 
