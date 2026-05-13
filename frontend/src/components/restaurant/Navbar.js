@@ -26,10 +26,10 @@ function checkIsOpen() {
   };
 }
 
-const CLOSED_MESSAGES = {
-  ro: (openTime, closeTime) => `🔴 Comenzile online se acceptă între ${openTime} - ${closeTime}. În afara acestui interval nu se pot plasa comenzi.`,
-  en: (openTime, closeTime) => `🔴 Online orders are accepted between ${openTime} - ${closeTime}. Orders cannot be placed outside this interval.`,
-  hu: (openTime, closeTime) => `🔴 Online rendelés ${openTime} - ${closeTime} között lehetséges. Ezen kívül nem lehet rendelést leadni.`,
+const KITCHEN_HOURS = {
+  ro: '🔴 Bucătăria este închisă. Program bucătărie: Luni-Joi & Duminică 12:00-22:30 | Vineri-Sâmbătă 12:00-23:30',
+  en: '🔴 Kitchen is closed. Kitchen hours: Mon-Thu & Sun 12:00-22:30 | Fri-Sat 12:00-23:30',
+  hu: '🔴 A konyha zárva van. Konyha nyitvatartás: H-Cs & V 12:00-22:30 | P-Szo 12:00-23:30',
 };
 
 export default function Navbar() {
