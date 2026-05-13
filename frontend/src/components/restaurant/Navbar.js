@@ -27,9 +27,9 @@ function checkIsOpen() {
 }
 
 const CLOSED_MESSAGES = {
-  ro: (openTime, closeTime) => `🔴 Comenzile se acceptă între ${openTime} - ${closeTime}. Momentan suntem închiși.`,
-  en: (openTime, closeTime) => `🔴 Orders accepted between ${openTime} - ${closeTime}. We are currently closed.`,
-  hu: (openTime, closeTime) => `🔴 Rendelés ${openTime} - ${closeTime} között lehetséges. Jelenleg zárva vagyunk.`,
+  ro: (openTime, closeTime) => `🔴 Comenzile online se acceptă între ${openTime} - ${closeTime}. În afara acestui interval nu se pot plasa comenzi.`,
+  en: (openTime, closeTime) => `🔴 Online orders are accepted between ${openTime} - ${closeTime}. Orders cannot be placed outside this interval.`,
+  hu: (openTime, closeTime) => `🔴 Online rendelés ${openTime} - ${closeTime} között lehetséges. Ezen kívül nem lehet rendelést leadni.`,
 };
 
 export default function Navbar() {
@@ -65,7 +65,7 @@ export default function Navbar() {
     }
   };
 
-  const closedMessage = (CLOSED_MESSAGES[language] || CLOSED_MESSAGES.ro)(openTime, closeTime);
+  const closedMessage = KITCHEN_HOURS[language] || KITCHEN_HOURS.ro;
 
   return (
     <>

@@ -142,10 +142,14 @@ export default function CheckoutPage() {
           {!isOpen && (
             <div className="bg-red-900/20 border border-red-500/40 rounded-sm p-5">
               <p className="text-sm text-red-400 uppercase tracking-[0.2em] font-bold mb-1 font-['Oswald',sans-serif]">
-                🔴 Momentan închis
+                🔴 {language === 'hu' ? 'A konyha zárva van' : language === 'en' ? 'Kitchen is closed' : 'Bucătăria este închisă'}
               </p>
               <p className="text-sm text-red-400/70 font-['Source_Sans_3',sans-serif]">
-                Comenzile se acceptă Luni-Vineri 12:00-22:30, Sâmbătă-Duminică 12:00-23:30
+                {language === 'hu'
+                  ? 'Konyha nyitvatartás: H-Cs & V 12:00-22:30 | P-Szo 12:00-23:30'
+                  : language === 'en'
+                  ? 'Kitchen hours: Mon-Thu & Sun 12:00-22:30 | Fri-Sat 12:00-23:30'
+                  : 'Program bucătărie: Luni-Joi & Duminică 12:00-22:30 | Vineri-Sâmbătă 12:00-23:30'}
               </p>
             </div>
           )}
