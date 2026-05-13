@@ -14,14 +14,14 @@ const LANGS = [
 
 function checkIsOpen() {
   const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Bucharest' }));
-  const weekday = now.getDay();
-  const isWeekend = weekday === 0 || weekday === 6;
+  const weekday = now.getDay(); // 0=Vas, 5=Péntek, 6=Szombat
+  const isFriSat = weekday === 5 || weekday === 6;
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
   const openMinutes = 12 * 60;
-  const closeMinutes = isWeekend ? 23 * 60 + 30 : 22 * 60 + 30;
+  const closeMinutes = isFriSat ? 23 * 60 + 30 : 22 * 60 + 30;
   return {
     open: currentMinutes >= openMinutes && currentMinutes <= closeMinutes,
-    closeTime: isWeekend ? '23:30' : '22:30',
+    closeTime: isFriSat ? '23:30' : '22:30',
     openTime: '12:00'
   };
 }
