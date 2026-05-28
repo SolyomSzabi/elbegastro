@@ -13,7 +13,7 @@ function checkIsOpen() {
   const weekday = now.getDay(); // 0=Vas, 5=Péntek, 6=Szombat
   const isFriSat = weekday === 5 || weekday === 6;
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
-  const openMinutes = 12 * 60;
+  const openMinutes = 8 * 60;
   const closeMinutes = isFriSat ? 23 * 60 + 30 : 22 * 60 + 30;
   return {
     open: currentMinutes >= openMinutes && currentMinutes <= closeMinutes,
