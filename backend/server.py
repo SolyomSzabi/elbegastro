@@ -96,7 +96,7 @@ def is_ordering_open() -> bool:
     hour = now.hour
     minute = now.minute
     current_minutes = hour * 60 + minute
-    open_minutes = 12 * 60  # 12:00
+    open_minutes = 0 * 60  # 12:00
     if weekday == 4 or weekday == 5:  # Péntek vagy Szombat
         close_minutes = 23 * 60 + 30  # 23:30
     else:  # Többi nap
@@ -106,10 +106,9 @@ def is_ordering_open() -> bool:
 @api_router.post("/orders")
 async def create_order(order: OrderCreate):
     if not is_ordering_open():
-        raise HTTPException(
-            status_code=400,
-            detail="ordering_closed"
-        )
+        raise HTTPException(status_code=400, detail="ordering_closed")
+    if not ordering_state["enabled"]:
+        raise HTTPException(status_code=400, detail="ordering_closed")
     total = calculate_order_total(order.items)
     order_id = str(uuid.uuid4())[:8].upper()
 
@@ -161,6 +160,20 @@ async def create_order(order: OrderCreate):
         "items": order_doc["items"],
         "created_at": order_doc["created_at"]
     }
+
+# --- Ordering Toggle ---
+# In-memory state (resets on redeploy, de ez rendben van)
+ordering_state = {"enabled": True}
+
+@api_router.get("/ordering/status")
+async def get_ordering_status():
+    return {"enabled": ordering_state["enabled"]}
+
+@api_router.post("/ordering/toggle")
+async def toggle_ordering(request: Request):
+    body = await request.json()
+    ordering_state["enabled"] = body.get("enabled", True)
+    return {"enabled": ordering_state["enabled"]}
 
 # --- Desktop App Endpoints ---
 @api_router.get("/orders/pending")
