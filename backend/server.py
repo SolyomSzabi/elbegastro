@@ -117,9 +117,9 @@ async def create_order(order: OrderCreate):
     extras_map = {item["id"]: item for item in EXTRAS}
     # Per-item notes mapping
     per_item_notes = {}
-    if hasattr(order, 'per_item_notes') and order.per_item_notes:
+    if order.per_item_notes:
         for pin in order.per_item_notes:
-            per_item_notes[pin.get("item_id", "")] = pin.get("notes", "")
+            per_item_notes[pin.item_id] = pin.notes
     for cart_item in order.items:
         menu_item = menu_map.get(cart_item.item_id) or extras_map.get(cart_item.item_id)
         if menu_item:
